@@ -1,0 +1,21 @@
+{
+  "name": "Zombie Shooter",
+  "short_name": "ZombShoot",
+  "start_url": "Game.html",
+  "display": "fullscreen",
+  "background_color": "#fdfdfd",
+  "scope": "/",
+  "theme_color": "#db4938",
+  "orientation": "landscape",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "assets/images/icon.png",
+      "type": "image/png", "sizes": "192x192"
+    },
+      {
+      "src": "assets/images/icon2.png",
+      "type": "image/png", "sizes": "512x512"
+    }
+  ]
+}
