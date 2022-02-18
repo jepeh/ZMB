@@ -10,7 +10,7 @@ let Profile = {
 	bulletType: "ninjabladeBullet",
 	bombDamage: 20,
 	energy: 10,
-	mapRadius: 120,
+	mapRadius: 60,
 	atomBombRadius: 20,
 	atomLevel: 100,
 	playGame: false,

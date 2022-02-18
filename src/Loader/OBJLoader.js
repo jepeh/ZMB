@@ -473,7 +473,8 @@ class OBJLoader extends Loader {
 			}
 
 		}, onProgress, onError );
-
+		
+		
 	}
 
 	setMaterials( materials ) {

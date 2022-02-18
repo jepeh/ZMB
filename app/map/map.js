@@ -56,7 +56,7 @@ function drawMap(enemy) {
 
 	// Radius proximity
 	ctx.beginPath()
-	ctx.rect(hx - hero.mapRadius / 2 + hero.mesh.children[0].geometry.parameters.width / 2, hz + hero.mesh.children[0].geometry.parameters.depth / 2 - hero.mapRadius / 2, hero.mapRadius, hero.mapRadius)
+	ctx.rect(hx - hero.mapRadius / 2 + hero.size.w / 2, hz + hero.size.w / 2 - hero.mapRadius / 2, hero.mapRadius, hero.mapRadius)
 	ctx.fillStyle = "rgba(255,255,255,.09)"
 	ctx.fill()
 	ctx.closePath()

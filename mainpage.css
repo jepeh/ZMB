@@ -128,3 +128,31 @@ background-color: black
 	width: 100vw;
 	color: white;
 }
+
+#alert {
+  position: absolute;
+  width: 30vw;
+  height: 50vh;
+  margin: auto;
+  left: 50vw;
+  margin-left: -15vw;
+  top: 50vh;
+  margin-top: -25vh;
+  z-index: 3;
+  border-radius: 10px;
+  background-color: #000000AB;
+  color: white;
+  font-family: 'QS-L';
+  font-size: 10px;
+  text-align: right;
+  padding: 10px;
+  display: none;
+  animation: pop .3s cubic-bezier(0.19, 1, 0.22, 1)
+}
+
+#alert-txt {
+  position: relative;
+  text-align: center;
+  font-size: 2.6vh;
+  top: 10%;
+}
