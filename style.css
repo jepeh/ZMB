@@ -1059,27 +1059,6 @@ span {
   border-radius: 5px;
   }
 
-#mapicon {
-  position: absolute;
-  width: 9vw;
-  top: 100vh;
-  margin-top: -22vh;
-  opacity: .9;
-  left: 20vw;
-  display: none;
-  background-color: none;
-  animation: pop .6s cubic-bezier(0.175, 0.885, 0.32, 1.275)
-}
-
-#mapsrc {
-  position: relative;
-  width: 60%;
-  margin: auto;
-  border-radius: 50%;
-  padding: 2px;
-  margin-top: 20px;
-  text-align: center
-}
 
 #atombomb {
   position: absolute;

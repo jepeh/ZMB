@@ -602,7 +602,6 @@ var Game = (function(w, func) {
       character.name = Profile.heroName
       character.position.set(0, 0, 0)
       character.receiveShadow = true
-      character.scale.set(.0, .0, .0)
       character.rotation.y = -Math.PI/4
       CAMERA.position.set(0, 20, 20)
       CAMERA.lookAt(character.position)
@@ -642,15 +641,41 @@ var Game = (function(w, func) {
     var fog = new Three.Fog("black", 70, 100)
     SCENE.fog = fog
 
-    TweenMax.to(character.scale, .9, {
-      x: .4,
-      y: .4,
-      z: .4,
+
+    Obj.exciteCharacter = function(){
+    TweenMax.to(character.scale, .2, {
+      x: .9,
+      y: .6,
+      z: .9,
       easing: Power2.easingIn,
       onComplete: function() {
-        $("#playbtn").css("display", "grid")
+       TweenMax.to(character.position, .2, {
+         y: 3.7,
+         onComplete: function() {
+           TweenMax.to(character.rotation, .3, {
+             z: Math.PI*2,
+             onComplete: ()=>{
+               TweenMax.to(character.position, .3, {
+                 y: 0
+               })
+             }
+           })
+         }
+       })
+       TweenMax.to(character.scale, .2, {
+         x: 1,
+         y: 1,
+         z: 1
+       })
       }
     })
+   
+    }
+    
+    setTimeout(Obj.exciteCharacter, 800)
+    
+    
+    
     TweenMax.to(cu.position, 1.2, {
       x: 0,
       y: -1.3,

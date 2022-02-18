@@ -52,7 +52,7 @@ var FARM = {
 
 
     // display stats
-    $("#statcount, #tips, #life, #bombbar, #counter, #utils, #mapicon").css("display", "grid")
+    $("#statcount, #tips, #life, #bombbar, #counter, #utils").css("display", "grid")
     $("#joystick")
       .css("opacity", "1")
     $("#map, #atombomb").css("display", "block")
@@ -166,7 +166,7 @@ var FARM = {
         thirdSkill(e)
       })
       
-      $("#mapicon").on("touchstart", ()=>{
+      $("#map").on("touchstart", ()=>{
         $("#map").css({
           transform: "scale(3)",
           left: "50vw",
@@ -174,7 +174,7 @@ var FARM = {
         })
       })
       
-      $("#mapicon").on("touchend", ()=>{
+      $("#map").on("touchend", ()=>{
         $("#map").css({
           transform: "scale(1)",
           left: "2.5vw",
@@ -666,7 +666,7 @@ var FARM = {
 
     droppedCoins.length = 0
 
-    $("#statcount, #counter, #life, #bombbar, #atombomb, #critical, #utils, #mapicon")
+    $("#statcount, #counter, #life, #bombbar, #atombomb, #critical, #utils")
       .css("display", "none")
 
     $("#joystick")
@@ -826,7 +826,7 @@ var FARM = {
     }
 
     // hide stats and joystick
-    $("#statcount, #counter, #life, #bombbar, #atombomb, #utils, #mapicon")
+    $("#statcount, #counter, #life, #bombbar, #atombomb, #utils")
       .css("display", "none")
     $("#joystick")
       .css("opacity", "0")

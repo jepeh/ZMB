@@ -1500,37 +1500,11 @@ class defaultHero extends Hero {
 
   constructor() {
     super()
+    this.stopAnim = false
   }
 
   renderHero(cb) {
-
-    /*	const group = new Three.Group()
-    	group.position.set(this.position.x, this.position.y, this.position.z)
-
-    	const mainBody = new Three.Mesh(new Three.BoxBufferGeometry(this.size.w, this.size.h, this.size.d), new Three.MeshNormalMaterial())
-    	mainBody.material.transparent = true
-    	mainBody.material.opacity = 0
-    	mainBody.scale.set(.4, .4, .4)
-    	group.add(mainBody)
-
-    	//	var maptxt = TxtLoader.load('assets/images/coin_reward.png')
-
-    	const mesh = new Three.Mesh(new Three.BoxGeometry(this.size.w, this.size.h, this.size.d), new Three.MeshToonMaterial())
-    	mesh.castShadow = true
-    	mesh.receiveShadow = true
-    	group.add(mesh)
-
-    	const muzzle = new Three.Mesh(new Three.BoxGeometry(1, 1, 1), new Three.MeshToonMaterial({ transparent: true, opacity: 1 }))
-    	muzzle.position.set(0, 1, 6)
-    	group.add(muzzle)
-    	this.mesh = group
-
-    	// update coins
-    	$("#bulletCount").text("Bullets x" + this.bullets)
-    	$("#coinstxt").text("coins x" + this.coins)
-      SCENE.add(new Three.AxesHelper(20))
-     cb(group)*/
-
+    this.animation()
     ObjectLoader.load("assets/characters/kiwi.obj", e => {
       var obj = e
       for (var i = 0; i < obj.children.length; i++) {
@@ -1540,12 +1514,13 @@ class defaultHero extends Hero {
       this.mesh = obj
       cb(obj)
     })
+    
     return;
+    
   }
 
   anim(e) {
     !window.inGame ? this.mesh.rotation.y = Math.cos(e) * .2 : false
-
     return;
   }
 
@@ -1589,6 +1564,55 @@ class defaultHero extends Hero {
     sys.start()
 
     return;
+  }
+  
+  animation(){
+   var an = setInterval(()=>{
+     if (this.stopAnim) {
+       clearInterval(an)
+       this.stopAnim = false
+     } else {
+       var left = this.mesh.children[12]
+       var right = this.mesh.children[13]
+    
+       TweenMax.to(this.mesh.scale, .3, {
+         x: .8,
+         y: 1.2,
+         onComplete: function(){
+           TweenMax.to(hero.mesh.scale, .5, {
+             x: 1,
+             y: 1,
+             z: 1,
+             onComplete: function() {
+               TweenMax.to(left.scale, .2, {
+                
+                y: .4,
+              
+                 onComplete: function(){
+                   TweenMax.to(left.scale, .2, {
+                     y: 1
+                   })
+                 }
+               })
+               TweenMax.to(right.scale, .2, {
+                 y: .4,
+                 onComplete: function(){
+                   TweenMax.to(right.scale, .2, {
+                     y: 1
+                   })
+                 }
+               })
+               
+             }
+           })
+         }
+       })
+     }
+   }, 5000) 
+  }
+  
+  stopanimation() {
+    this.stopAnim = true
   }
 
   heroHurt() {

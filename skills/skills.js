@@ -297,7 +297,31 @@ var Skills = [
       var mmap = TextureLoader.load("assets/images/textures/instantKill.png")
       var rod = TextureLoader.load("assets/images/textures/IKrod.png")
 
-
+    // transform camera
+    var mPos = CAMERA.position
+    var faceAngle = Math.atan2((CAMERA.position.x - character.position.x),(CAMERA.position.z - character.position.z))
+  
+    TweenMax.to(CAMERA.position, 1.5, {
+      x: character.position.x + 20,
+      y: character.position.y + 20,
+      z: character.position.z + 20,
+      onUpdate: ()=>{
+      //  CAMERA.lookAt(character.position)
+        //CONTROLS.target = character.position
+      },
+      onComplete: ()=>{
+        CAMERA.position.copy(character.position)
+        CAMERA.position.x += 20
+        CAMERA.position.y += 60
+        CAMERA.position.z += 20
+       // CAMERA.lookAt(character.position)
+       // CONTROLS.target = character.position
+      }
+    })
+    
+    TweenMax.to(character.rotation, 1, {
+      y: faceAngle
+    })
 
       // Find Targets 
       var HX = character.position.x,
@@ -333,7 +357,7 @@ var Skills = [
       plane.scale.set(0, 0, 0)
       SCENE.add(plane)
 
-      TweenMax.to(plane.scale, 1, {
+      TweenMax.to(plane.scale, 1.5, {
         x: 1.5,
         y: 1.5,
         z: 1.5
@@ -351,12 +375,12 @@ var Skills = [
       plane2.scale.set(0, 0, 0)
       SCENE.add(plane2)
 
-      TweenMax.to(plane2.scale, 1, {
+      TweenMax.to(plane2.scale, 1.4, {
         x: 1,
         y: 1,
         z: 1
       })
-      TweenMax.to(plane2.position, 1, {
+      TweenMax.to(plane2.position, 1.7, {
         y: 10,
         onComplete: () => {
           var hh = 0

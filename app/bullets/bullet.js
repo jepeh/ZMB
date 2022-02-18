@@ -605,7 +605,8 @@ function blade(pos) {
 	var hit = new Three.Mesh(new Three.PlaneGeometry(11, 11), new Three.MeshToonMaterial({
 		transparent: true,
 		side: 2,
-		map: hero.HitMap
+		map: hero.HitMap,
+		depthTest: false
 	}))
 	hit.position.copy(pos)
 	hit.scale.set(0, 0, 0)
