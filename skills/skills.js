@@ -297,31 +297,31 @@ var Skills = [
       var mmap = TextureLoader.load("assets/images/textures/instantKill.png")
       var rod = TextureLoader.load("assets/images/textures/IKrod.png")
 
-    // transform camera
-    var mPos = CAMERA.position
-    var faceAngle = Math.atan2((CAMERA.position.x - character.position.x),(CAMERA.position.z - character.position.z))
-  
-    TweenMax.to(CAMERA.position, 1.5, {
-      x: character.position.x + 20,
-      y: character.position.y + 20,
-      z: character.position.z + 20,
-      onUpdate: ()=>{
-      //  CAMERA.lookAt(character.position)
-        //CONTROLS.target = character.position
-      },
-      onComplete: ()=>{
-        CAMERA.position.copy(character.position)
-        CAMERA.position.x += 20
-        CAMERA.position.y += 60
-        CAMERA.position.z += 20
-       // CAMERA.lookAt(character.position)
-       // CONTROLS.target = character.position
-      }
-    })
-    
-    TweenMax.to(character.rotation, 1, {
-      y: faceAngle
-    })
+      // transform camera
+      var mPos = CAMERA.position
+      var faceAngle = Math.atan2((CAMERA.position.x - character.position.x), (CAMERA.position.z - character.position.z))
+
+      TweenMax.to(CAMERA.position, 1.5, {
+        x: character.position.x + 20,
+        y: character.position.y + 20,
+        z: character.position.z + 20,
+        onUpdate: () => {
+          //  CAMERA.lookAt(character.position)
+          //CONTROLS.target = character.position
+        },
+        onComplete: () => {
+          CAMERA.position.copy(character.position)
+          CAMERA.position.x += 20
+          CAMERA.position.y += 60
+          CAMERA.position.z += 20
+          // CAMERA.lookAt(character.position)
+          // CONTROLS.target = character.position
+        }
+      })
+
+      TweenMax.to(character.rotation, 1, {
+        y: faceAngle
+      })
 
       // Find Targets 
       var HX = character.position.x,
@@ -394,13 +394,15 @@ var Skills = [
                 z: HZ,
                 onComplete: () => {
                   for (var i = 0; i < returnArr.length; i++) {
-                    if (returnArr[i].mesh.name === "boss") {
-                      if (returnArr[i]) {
+                    if (returnArr[i].mesh) {
+
+                      if (returnArr[i].mesh.name === "boss") {
                         returnArr[i].hurt()
                         returnArr[i].hp -= 10
+                      } else {
+                        returnArr[i].hp = 0
                       }
-                    } else {
-                      returnArr[i].hp = 0
+
                     }
                   }
                 }

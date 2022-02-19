@@ -35,6 +35,7 @@ const ASSETS = [
 	"src/Loader/FontLoader.js",
 	"src/Loader/OBJLoader.js",
 	"src/Stats.js",
+	"assets/characters/kiwi.obj",
 	"assets/audio/bladeGun.wav",
 	"assets/audio/bomb.mp3",
 	"assets/audio/coin.wav",
@@ -104,13 +105,12 @@ const ASSETS = [
 	"assets/images/rewards/speed.png",
 	"assets/images/textures/bladeBullet.png",
 	"assets/images/textures/bladeHit.png",
-	"assets/images/textures/dis.png",
 	"assets/images/textures/field.png",
+	"assets/images/textures/jelly.png",
 	"assets/images/textures/gun.png",
 	"assets/images/textures/gunrange.png",
 	"assets/images/textures/halo.png",
 	"assets/images/textures/heal.png",
-	"assets/images/textures/Hh.gif",
 	"assets/images/textures/IKrod.png",
 	"assets/images/textures/instantKill.png",
 	"assets/images/textures/jellyfishBullet.png",
@@ -125,7 +125,8 @@ const ASSETS = [
 	"assets/images/textures/phoenixfireBullet.png",
 	"assets/images/textures/rod.png",
 	"assets/images/textures/summonZombie.png",
-	"assets/images/textures/particleTexture.png"
+	"assets/images/textures/particleTexture.png",
+	"assets/images/textures/phoenixhit.png"
 	];
 
 self.addEventListener("install", (installEvent) => {

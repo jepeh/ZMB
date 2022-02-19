@@ -756,6 +756,8 @@ var FARM = {
   },
   gameWin: function() {
 
+    GAME.exciteCharacter()
+    
     $(".ccns, #ccnscoin, #critical").remove()
     Utils.playSound(Sound.gameWin)
     Utils.stopSound(Sound.FarmMode)
@@ -826,7 +828,7 @@ var FARM = {
     }
 
     // hide stats and joystick
-    $("#statcount, #counter, #life, #bombbar, #atombomb, #utils")
+    $("#map, #statcount, #counter, #life, #bombbar, #atombomb, #utils")
       .css("display", "none")
     $("#joystick")
       .css("opacity", "0")

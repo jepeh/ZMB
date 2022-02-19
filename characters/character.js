@@ -57,7 +57,6 @@ class Hero {
     this.mapBullet = window.TextureLoader.load(`assets/images/textures/${Profile.bulletType}.png`)
     this.position = new Three.Vector3(0, 4, 0)
     this.scene = SCENE
-    this.HitMap = TextureLoader.load("assets/images/textures/bladeHit.png")
     this.life = document.getElementById('life')
     this.hp = document.getElementById('hp')
     this.hpLeft = Profile.maxHP
@@ -732,8 +731,6 @@ var Enemy = function(position, color, size, x, z, scene, c, r, name, physics) {
       }
     }
 
-
-
     // Update Bombs and if true, hurt enemy itself.
 
     var PosXBackB = self.mesh.position.x - self.mesh.geometry.parameters.width / 2,
@@ -755,7 +752,6 @@ var Enemy = function(position, color, size, x, z, scene, c, r, name, physics) {
           self.mesh.material.color.set(self.color)
           clearTimeout(u)
         }, 100)
-
 
 
         var pos = droppedBomb[b].position
@@ -784,17 +780,6 @@ var Enemy = function(position, color, size, x, z, scene, c, r, name, physics) {
     // the zombie died
     // drop coins
 
-    Enemy.prototype.lvl = function() {
-      Profile.atomLevel = Profile.atomLevel + 10
-      $(".atomimgoff").css({
-        opacity: 1
-      })
-      $(".atomimgoff").attr("src", "assets/images/atomon.png")
-      $(".atomimgoff").removeClass().addClass("atomimgon")
-      Profile.atomLevel = 100
-
-    }
-
     // Hero died
     // Game Over
 
@@ -805,9 +790,21 @@ var Enemy = function(position, color, size, x, z, scene, c, r, name, physics) {
     return;
   }
 
+  self.lvl = function() {
+    Profile.atomLevel = Profile.atomLevel + 10
+    $(".atomimgoff").css({
+      opacity: 1
+    })
+    $(".atomimgoff").attr("src", "assets/images/atomon.png")
+    $(".atomimgoff").removeClass().addClass("atomimgon")
+    Profile.atomLevel = 100
+    return;
+  }
+
+
   self.die = function() {
     // update Atom Level
-    Profile.atomLevel >= 90 ? Enemy.prototype.lvl() : Profile.atomLevel = Profile.atomLevel + 10, $('.chart').data('easyPieChart').update(Profile.atomLevel);
+    Profile.atomLevel >= 90 ? self.lvl() : Profile.atomLevel = Profile.atomLevel + 10, $('.chart').data('easyPieChart').update(Profile.atomLevel);
 
     /*	window.loader.load('../assets/gltf/coin.gltf', e => {
 
@@ -1049,25 +1046,25 @@ var EnemyBoss = function() {
     //*******************************************
 
     if (zzFront > zFront && zBack > zzBack && xxFront > xFront && xBack > xxBack) {
-      hero.hurt(self.attack, 0.01)
+      hero.immune ? false : hero.hurt(self.attack, 0.01)
+
     }
     //Phase 1 hurt
     else if (zzFront >= zFront && zBack >= zzBack && xFront > xxBack && xxBack > xBack) {
-      hero.hurt(self.attack, 0.01)
-
+      hero.immune ? false : hero.hurt(self.attack, 0.01)
     }
     // Phase 3 hurt
     else if (zzFront >= zFront && zBack >= zzBack && xxFront > xBack && xFront > xxFront) {
-      hero.hurt(self.attack, 0.01)
+      hero.immune ? false : hero.hurt(self.attack, 0.01)
     }
     // Phase 2 hurt
     else if (xBack >= xxBack && xxFront >= xFront && zFront > zzBack && zzBack > zBack) {
-      hero.hurt(self.attack, 0.01)
+      hero.immune ? false : hero.hurt(self.attack, 0.01)
 
     }
     // Phase 4 hurt
     else if (xBack >= xxBack && xxFront >= xFront & zzFront > zBack && zFront > zzFront) {
-      hero.hurt(self.attack, 0.01)
+      hero.immune ? false : hero.hurt(self.attack, 0.01)
     }
 
     // Bullet Hurt
@@ -1107,6 +1104,8 @@ var EnemyBoss = function() {
           y: bombY,
           z: bombZ
         }
+
+        bulletSprite(pos)
 
         for (var i = 0; i < 10; i++) {
 
@@ -1514,9 +1513,9 @@ class defaultHero extends Hero {
       this.mesh = obj
       cb(obj)
     })
-    
+
     return;
-    
+
   }
 
   anim(e) {
@@ -1565,64 +1564,64 @@ class defaultHero extends Hero {
 
     return;
   }
-  
-  animation(){
-   var an = setInterval(()=>{
-     if (this.stopAnim) {
-       clearInterval(an)
-       this.stopAnim = false
-     } else {
-       var left = this.mesh.children[12]
-       var right = this.mesh.children[13]
-    
-       TweenMax.to(this.mesh.scale, .3, {
-         x: .8,
-         y: 1.2,
-         onComplete: function(){
-           TweenMax.to(hero.mesh.scale, .5, {
-             x: 1,
-             y: 1,
-             z: 1,
-             onComplete: function() {
-               TweenMax.to(left.scale, .2, {
-                
-                y: .4,
-              
-                 onComplete: function(){
-                   TweenMax.to(left.scale, .2, {
-                     y: 1
-                   })
-                 }
-               })
-               TweenMax.to(right.scale, .2, {
-                 y: .4,
-                 onComplete: function(){
-                   TweenMax.to(right.scale, .2, {
-                     y: 1
-                   })
-                 }
-               })
-               
-             }
-           })
-         }
-       })
-     }
-   }, 5000) 
+
+  animation() {
+    var an = setInterval(() => {
+      if (this.stopAnim) {
+        clearInterval(an)
+        this.stopAnim = false
+      } else {
+        var left = this.mesh.children[12]
+        var right = this.mesh.children[13]
+
+        TweenMax.to(this.mesh.scale, .3, {
+          x: .8,
+          y: 1.2,
+          onComplete: function() {
+            TweenMax.to(hero.mesh.scale, .5, {
+              x: 1,
+              y: 1,
+              z: 1,
+              onComplete: function() {
+                TweenMax.to(left.scale, .2, {
+
+                  y: .4,
+
+                  onComplete: function() {
+                    TweenMax.to(left.scale, .2, {
+                      y: 1
+                    })
+                  }
+                })
+                TweenMax.to(right.scale, .2, {
+                  y: .4,
+                  onComplete: function() {
+                    TweenMax.to(right.scale, .2, {
+                      y: 1
+                    })
+                  }
+                })
+
+              }
+            })
+          }
+        })
+      }
+    }, 5000)
   }
-  
+
   stopanimation() {
     this.stopAnim = true
   }
 
   heroHurt() {
-   
-   this.hp.style.backgroundColor = "red"
-   /* var t = setTimeout(()=>{
-      this.hp.style.backgroundColor = "#11CCFF"
-      clearTimeout(t)
-    }, 200)*/
-    
+
+    this.hp.style.backgroundColor = "red"
+    /* var t = setTimeout(()=>{
+       this.hp.style.backgroundColor = "#11CCFF"
+       clearTimeout(t)
+     }, 200)*/
+
     return;
   }
 

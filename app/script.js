@@ -154,8 +154,8 @@ var Game = (function(w, func) {
           clearTimeout(ho)
           $("#logo").remove()
           $("body").css('background', "#191C25")
-        
-          window.hero.renderHero((c)=>{
+
+          window.hero.renderHero((c) => {
             window.character = c
             func(FB)
           })
@@ -333,8 +333,8 @@ var Game = (function(w, func) {
 
     window.CONTROLS = new OrbitControls(CAMERA, RENDERER.domElement)
     CONTROLS.enabled = true
-    CONTROLS.enablePan = true
-    CONTROLS.enableZoom = true
+    CONTROLS.enablePan = false
+    CONTROLS.enableZoom = false
     CONTROLS.minPolarAngle = -Math.PI / 4;
     CONTROLS.maxPolarAngle = Math.PI / 3;
 
@@ -602,13 +602,16 @@ var Game = (function(w, func) {
       character.name = Profile.heroName
       character.position.set(0, 0, 0)
       character.receiveShadow = true
-      character.rotation.y = -Math.PI/4
+      character.rotation.y = -Math.PI / 4
       CAMERA.position.set(0, 20, 20)
       CAMERA.lookAt(character.position)
-      SCENE.add(window.character)
+       SCENE.add(window.character)
     }
 
     ch()
+
+    
+
 
     window.mm = [
 			new Three.MeshToonMaterial({ transparent: true }),
@@ -642,40 +645,40 @@ var Game = (function(w, func) {
     SCENE.fog = fog
 
 
-    Obj.exciteCharacter = function(){
-    TweenMax.to(character.scale, .2, {
-      x: .9,
-      y: .6,
-      z: .9,
-      easing: Power2.easingIn,
-      onComplete: function() {
-       TweenMax.to(character.position, .2, {
-         y: 3.7,
-         onComplete: function() {
-           TweenMax.to(character.rotation, .3, {
-             z: Math.PI*2,
-             onComplete: ()=>{
-               TweenMax.to(character.position, .3, {
-                 y: 0
-               })
-             }
-           })
-         }
-       })
-       TweenMax.to(character.scale, .2, {
-         x: 1,
-         y: 1,
-         z: 1
-       })
-      }
-    })
-   
+    Obj.exciteCharacter = function() {
+      TweenMax.to(character.scale, .2, {
+        x: .9,
+        y: .6,
+        z: .9,
+        easing: Power2.easingIn,
+        onComplete: function() {
+          TweenMax.to(character.position, .2, {
+            y: 3.7,
+            onComplete: function() {
+              TweenMax.to(character.rotation, .3, {
+                z: Math.PI * 2,
+                onComplete: () => {
+                  TweenMax.to(character.position, .3, {
+                    y: 0
+                  })
+                }
+              })
+            }
+          })
+          TweenMax.to(character.scale, .2, {
+            x: 1,
+            y: 1,
+            z: 1
+          })
+        }
+      })
+
     }
-    
+
     setTimeout(Obj.exciteCharacter, 800)
-    
-    
-    
+
+
+
     TweenMax.to(cu.position, 1.2, {
       x: 0,
       y: -1.3,
