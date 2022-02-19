@@ -2,38 +2,40 @@
 
 
 if ("serviceWorker" in navigator) {
-	window.addEventListener("load", function() {
-		
-		navigator.serviceWorker
-			.register("serviceWorker.js")
-			.then((res) => {
-				alert("service worker installed!")
-				console.log("registered!")
-			})
-			.catch((err) => console.warn(err));
-	});
+  window.addEventListener("load", function() {
+
+    navigator.serviceWorker
+      .register("serviceWorker.js")
+      .then((res) => {
+        alert("service worker installed!")
+        console.log("registered!")
+      })
+      .catch((err) => console.warn(err));
+  });
 }
 
 let deferredPrompt;
 var install = document.getElementById("install")
 
 window.addEventListener("beforeinstallprompt", (e) => {
-	deferredPrompt = e;
-	install.innerText = "Install"
+  deferredPrompt = e;
+  install.innerText = "Install"
 });
 
 
 
 install.addEventListener("click", async () => {
-	if (deferredPrompt === undefined) {
-	} else {
-		deferredPrompt.prompt();
-		const { outcome } = await deferredPrompt.userChoice;
-		if (outcome === "accepted") {
-			deferredPrompt = null;
-		}
-	}
+  if (deferredPrompt === undefined) {} else {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === "accepted") {
+      deferredPrompt = null;
+    }
+  }
 });
+
+
+
 /*
 var c = 0;
 

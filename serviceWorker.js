@@ -1,6 +1,9 @@
 const ASSETS = [
 	"Game.html",
+	"index.html",
 	"style.css",
+	"App.js",
+	"mainpage.css",
 	"main.js",
 	"serviceWorker.js",
 	"manifest.json",
@@ -135,36 +138,38 @@ async function preCache() {
   return cache.addAll(ASSETS)
 }
 
-async function fetchCache(event) {
-
+async function fetchCache(event, cb) {
   try {
-    console.log("found in cache")
-    const cache = await caches.open("ASSETS")
-    return cache.match(event.request)
+    await caches.match(event.request).then(e => {
+      if (e === undefined) {
+        console.log("fetching from network")
+        fetch(event.request).then(ee => {
+          cb(ee)
+        })
+      } else {
+        console.log("found in cache")
+        cb(e)
+      }
+    })
   }
   catch {
-    console.log("fetching from network")
-    const response = await fetch(event.request)
-    return response
+    console.log("something went wrong")
   }
-
 }
 
 self.addEventListener("install", (installEvent) => {
   console.log("installed, caching files")
   installEvent.waitUntil(preCache())
   self.skipWaiting()
-
 });
-
 
 self.addEventListener("active", e => {
   console.log("activated")
 })
 
 self.addEventListener('fetch', function(event) {
-
   console.log("fecth event. fetching for " + event.request.url)
-  event.respondWith(fetchCache(event))
-
+  fetchCache(event, e =>{
+    event.respondWith(e)
+  })
 });

@@ -1505,13 +1505,12 @@ class defaultHero extends Hero {
   renderHero(cb) {
     this.animation()
     ObjectLoader.load("assets/characters/kiwi.obj", e => {
-      var obj = e
-      for (var i = 0; i < obj.children.length; i++) {
-        obj.children[i].material = new Three.MeshToonMaterial({ color: obj.children[i].name })
-        obj.children[i].clr = obj.children[i].name
+      for (var i = 0; i < e.children.length; i++) {
+        e.children[i].material = new Three.MeshToonMaterial({ color: e.children[i].name })
       }
-      this.mesh = obj
-      cb(obj)
+      
+      this.mesh = e
+      cb(this.mesh)
     })
 
     return;
@@ -1593,6 +1592,7 @@ class defaultHero extends Hero {
                     })
                   }
                 })
+                
                 TweenMax.to(right.scale, .2, {
                   y: .4,
                   onComplete: function() {

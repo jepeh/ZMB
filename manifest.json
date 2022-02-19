@@ -1,7 +1,7 @@
 {
   "name": "Zombie Shooter",
   "short_name": "ZombShoot",
-  "start_url": "Game.html",
+  "start_url": "/",
   "display": "fullscreen",
   "background_color": "#fdfdfd",
   "scope": "/",
