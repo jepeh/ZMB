@@ -21,6 +21,8 @@ var mainMusic = new Audio("assets/audio/mainMusic.mp3")
 mainMusic.volume = .3
 var selectINV = new Audio("assets/audio/selectInv.wav")
 selectINV.volume = .5
+var EnemyBoss = new Audio("assets/audio/EnemyBoss.mp3")
+EnemyBoss.volume = .5
 
 // Gun Sounds
 var normalGun = new Audio('assets/audio/normalGun.wav')
@@ -33,4 +35,4 @@ var instantKill = new Audio("assets/audio/instantKill.wav")
 var farmModeReward = new Audio("assets/audio/farmModeReward.wav")
 
 
-export {farmModeReward, instantKill, pixelBulletGun, selectINV, laserLightGun, bladeGun, laserGun, mainMusic, FarmMode, gift, die, gameMode, gameWin, gameOver, normalGun, eat, setting, color, toggle, lightningStrike, energy, coin}
+export {EnemyBoss, farmModeReward, instantKill, pixelBulletGun, selectINV, laserLightGun, bladeGun, laserGun, mainMusic, FarmMode, gift, die, gameMode, gameWin, gameOver, normalGun, eat, setting, color, toggle, lightningStrike, energy, coin}

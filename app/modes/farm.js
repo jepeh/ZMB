@@ -32,7 +32,7 @@ var FARM = {
 
     // light
 
-    Profile.playGame = true
+    
     Utils.stopSound(Sound.mainMusic)
     Utils.playMusic(Sound.FarmMode)
 
@@ -585,8 +585,7 @@ var FARM = {
   },
 
   gameOver: function() {
-    Utils.stopSound(Sound.FarmMode)
-
+    
     if (window.bossGame) {
       var b = SCENE.getObjectByName("boss")
       b.traverse(e => {
@@ -601,6 +600,9 @@ var FARM = {
     SCENE.remove(b)
 
     Utils.playSound(Sound.gameOver)
+    Utils.stopSound(Sound.FarmMode)
+    Utils.stopSound(Sound.EnemyBoss)
+    
 
     // stop clock
 
@@ -666,7 +668,7 @@ var FARM = {
 
     droppedCoins.length = 0
 
-    $("#statcount, #counter, #life, #bombbar, #atombomb, #critical, #utils")
+    $("#map, #statcount, #counter, #life, #bombbar, #atombomb, #critical, #utils")
       .css("display", "none")
 
     $("#joystick")
@@ -755,7 +757,7 @@ var FARM = {
 
   },
   gameWin: function() {
-
+    Utils.stopSound(Sound.EnemyBoss)
     GAME.exciteCharacter()
     
     $(".ccns, #ccnscoin, #critical").remove()
@@ -973,6 +975,10 @@ var FARM = {
     return;
   },
   EnemyBoss: function() {
+   
+    Utils.stopSound(Sound.FarmMode)
+    Utils.playMusic(Sound.EnemyBoss)
+
     var tu = setTimeout(() => {
       window.gobo = false
       TweenMax.to(CAMERA.position, 2.3, {

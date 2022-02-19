@@ -55,6 +55,7 @@ const ASSETS = [
 	"assets/audio/lightningStrike.mp3",
 	"assets/audio/mainMusic.mp3",
 	"assets/audio/menu.wav",
+	"assets/audio/EnemyBoss.mp3",
 	"assets/audio/normalGun.wav",
 	"assets/audio/pixelBullet.mp3",
 	"assets/audio/selectInv.wav",
