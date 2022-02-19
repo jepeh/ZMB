@@ -786,16 +786,16 @@ span {
   margin-left: -35vw;
   top: 94vh;
   background-color: #42445A;
-  border-radius: 50px;
-  display: none
+  display: none;
+  transform: skew(-20deg)
 }
 
 #bar {
   position: relative;
   width: 10%;
   height: 100%;
-  background-color: white;
-  border-radius: 50px
+  transform: skew(-20deg);
+  background: linear-gradient(to right, #0FBAD599, #003DFB91);
 }
 
 #gameover {

@@ -43,6 +43,50 @@ var Bullets = {
       z: 1
     })
 
+    var tut = setInterval(() => {
+      if (g.done) {
+        clearInterval(tut)
+
+      } else {
+        //	for (var i = 0; i < 2; i++) {
+        var size = Math.random() * (2 - .5) + .5
+        var tuts = new Three.Mesh(new Three.PlaneGeometry(size, size), new Three.MeshToonMaterial({
+          transparent: true,
+          side: 2,
+          color: "white",
+          map: Map.jelly
+        }))
+        tuts.rotation.x = -Math.PI / 2
+
+        var position = {
+          x: g.position.x + Math.random() * (2 - (-2)) + (-2),
+          y: g.position.y + Math.random() * (2 - (-1)) + (-1),
+          z: g.position.z + Math.random() * (2 - (-2)) + (-2)
+        }
+
+        //	tuts.scale.set(0, 0, 0)
+        tuts.position.copy(position)
+
+        SCENE.add(tuts)
+        //	tutsi.push(tuts)
+        //	}
+
+        TweenMax.to(tuts.scale, 1, {
+          x: .1,
+          y: .1,
+          z: .1,
+          onComplete: () => {
+            tuts.material.dispose()
+            tuts.geometry.dispose()
+            SCENE.remove(tuts)
+            tuts = null
+          }
+        })
+
+      }
+    }, 50)
+
+
     Utils.playSound(Sounds.bladeGun)
 
     return g;
@@ -205,13 +249,13 @@ var Bullets = {
           side: 2,
           map: Map.jelly
         }))
-        
-        tuts.rotation.x = -Math.PI/2
+
+        tuts.rotation.x = -Math.PI / 2
 
         var position = {
-          x: g.position.x + Math.random() * (2 - 1) + 1,
+          x: g.position.x + Math.random() * (2 - (-2)) + (-2),
           y: g.position.y + Math.random() * (2 - 1) + 1,
-          z: g.position.z + Math.random() * (2 - 1) + 1
+          z: g.position.z + Math.random() * (2 - (-2)) + (-2)
         }
 
         //	tuts.scale.set(0, 0, 0)
@@ -221,7 +265,7 @@ var Bullets = {
         //	tutsi.push(tuts)
         //	}
 
-        TweenMax.to(tuts.scale, 1.8, {
+        TweenMax.to(tuts.scale, 1, {
           x: .1,
           y: .1,
           z: .1,
@@ -234,7 +278,7 @@ var Bullets = {
         })
 
       }
-    }, 60)
+    }, 50)
 
 
     Utils.playSound(Sounds.laserLightGun)

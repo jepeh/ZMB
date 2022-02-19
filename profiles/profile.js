@@ -7,7 +7,7 @@ let Profile = {
   velocity: 15,
   rank: "noob",
   maxHP: 100,
-  bulletType: "jellyfishBullet",
+  bulletType: "bladeBullet",
   bombDamage: 20,
   energy: 10,
   mapRadius: 150,

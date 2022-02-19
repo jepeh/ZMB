@@ -376,7 +376,7 @@ var Game = (function(w, func) {
         cnt++;
         Levels.levels.push({
           level: cnt,
-          enemy: cnt > 10 ? cnt > 30 ? 80 : 50 : 1
+          enemy: cnt > 10 ? cnt > 30 ? 80 : 50 : 30
         })
       } while (cnt <= 50)
     }
@@ -605,14 +605,12 @@ var Game = (function(w, func) {
       character.rotation.y = -Math.PI / 4
       CAMERA.position.set(0, 20, 20)
       CAMERA.lookAt(character.position)
-       SCENE.add(window.character)
+      SCENE.add(window.character)
     }
 
     ch()
 
     
-
-
     window.mm = [
 			new Three.MeshToonMaterial({ transparent: true }),
 			new Three.MeshToonMaterial({ transparent: true, opacity: 0 }),
