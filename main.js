@@ -44,3 +44,4 @@ var console = (function(oldCons) {
 
 //Then redefine the old console
 window.console = console;*/
+

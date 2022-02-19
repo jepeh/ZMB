@@ -1,4 +1,3 @@
-
 const ASSETS = [
 	"Game.html",
 	"style.css",
@@ -129,55 +128,42 @@ const ASSETS = [
 	"assets/images/textures/phoenixhit.png"
 	];
 
+async function preCache() {
+  console.log("caching...")
+  var cache = await caches.open("ASSETS")
+  return cache.addAll(ASSETS)
+}
+
+async function fetchCache(event) {
+
+  try {
+    console.log("found in cache")
+    const cache = await caches.open("ASSETS")
+    return cache.match(event.request)
+  }
+  catch {
+    console.log("fetching from network")
+    const response = await fetch(event.request)
+    return response
+  }
+
+}
+
 self.addEventListener("install", (installEvent) => {
-console.log("installed")
-/*	installEvent.waitUntil(
-		caches.open("ASSETS").then((cache) => {
-			console.log("caching...")
-			return cache.addAll(ASSETS);
-		})
-		.catch(e => {
-			console.warn(e)
-		})
-	);*/
-	
-	self.skipWaiting()
-	
+  console.log("installed, caching files")
+  installEvent.waitUntil(preCache())
+  self.skipWaiting()
+
 });
 
+
 self.addEventListener("active", e => {
-	console.log("activated")
+  console.log("activated")
 })
 
 self.addEventListener('fetch', function(event) {
 
-console.log("fetching for " + event.request.url)
-	
-/*	event.respondWith(
-	  caches.open("ASSETS").then(cache =>{
-		cache.match(event.request)
-		.then(function(cacheResponse) {
+  console.log("fecth event. fetching for " + event.request.url)
+  event.respondWith(fetchCache(event))
 
-			var res;
-			
-			if (cacheResponse === undefined) {
-			  console.log("not in cache")
-				fetch(event.request).then( e =>{
-				console.log(e)
-					res = e
-				}).catch(r =>{
-				  console.warn(r)
-				})
-			} else {
-			  console.log("found in cache")
-				res = cacheResponse
-			}
-      console.log(res)
-			return res
-		})
-		.catch(e =>{
-			console.log("not match"+e)
-		})
-	  })
-	)*/
 });
