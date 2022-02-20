@@ -1354,7 +1354,7 @@ span {
   height: 20vw;
   top: 2vh;
   left: 2vh;
-  display: grid;
+  display: none;
   border-radius: 10px;
   background: linear-gradient(to right, #29CDFF00, #29CDFF00, #29CDFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #2BCDFF4F);
   border-right: .2px solid #29CDFF52;

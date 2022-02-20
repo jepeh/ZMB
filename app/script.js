@@ -333,8 +333,8 @@ var Game = (function(w, func) {
 
     window.CONTROLS = new OrbitControls(CAMERA, RENDERER.domElement)
     CONTROLS.enabled = true
-    CONTROLS.enablePan = false
-    CONTROLS.enableZoom = false
+    CONTROLS.enablePan = true
+    CONTROLS.enableZoom = true
     CONTROLS.minPolarAngle = -Math.PI / 4;
     CONTROLS.maxPolarAngle = Math.PI / 3;
 
@@ -600,8 +600,9 @@ var Game = (function(w, func) {
     function ch() {
 
       character.name = Profile.heroName
-      character.position.set(0, 0, 0)
+      character.position.set(0, 1, 0)
       character.receiveShadow = true
+      character.castShadow = true
       character.rotation.y = -Math.PI / 4
       CAMERA.position.set(0, 20, 20)
       CAMERA.lookAt(character.position)
@@ -610,7 +611,7 @@ var Game = (function(w, func) {
 
     ch()
 
-    
+
     window.mm = [
 			new Three.MeshToonMaterial({ transparent: true }),
 			new Three.MeshToonMaterial({ transparent: true, opacity: 0 }),
@@ -622,7 +623,7 @@ var Game = (function(w, func) {
     mm[0].side = 2
 
     window.cu = new Three.Mesh(new Three.CylinderGeometry(4, 4, 4, 50, 60), mm)
-    cu.position.set(0, 4, 0)
+    cu.position.set(0, 6, 0)
 
     SCENE.add(cu)
 
@@ -657,7 +658,7 @@ var Game = (function(w, func) {
                 z: Math.PI * 2,
                 onComplete: () => {
                   TweenMax.to(character.position, .3, {
-                    y: 0
+                    y: 1
                   })
                 }
               })
@@ -679,7 +680,7 @@ var Game = (function(w, func) {
 
     TweenMax.to(cu.position, 1.2, {
       x: 0,
-      y: -1.3,
+      y: -.8,
       z: 0,
       easing: Power2.easingIn,
       onComplete: function() {
@@ -697,6 +698,27 @@ var Game = (function(w, func) {
     // Change Color 
     //*******************************************
     window.colors = ["orange", "blue", "violet", "yellow", "white", "pink"]
+
+
+    // STAGE
+    var stage = new Three.Mesh(new Three.CylinderGeometry(7, 7, 1.2, 30), [
+      new Three.MeshToonMaterial({
+        transparent: true,
+        map: mp
+      }),
+      new Three.MeshPhongMaterial({color: "#2D3343"})])
+    stage.castShadow = true
+    stage.receiveShadow = true
+    
+    var stage2 = new Three.Mesh(new Three.CylinderGeometry(12, 12, .2, 30), [new Three.MeshToonMaterial({
+        transparent: true,
+        map: mp
+      }),
+      new Three.MeshPhongMaterial({color: "#2D3343"})])
+    stage2.castShadow = true
+    stage2.receiveShadow = true
+    
+    SCENE.add(stage, stage2)
 
     /*
     ***********************************************
