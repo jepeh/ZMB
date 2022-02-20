@@ -9,7 +9,7 @@ let Profile = {
   maxHP: 100,
   bulletType: "bladeBullet",
   bombDamage: 20,
-  energy: 10,
+  energy: 1,
   mapRadius: 150,
   atomBombRadius: 20,
   atomLevel: 100,

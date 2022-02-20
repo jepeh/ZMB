@@ -170,6 +170,6 @@ self.addEventListener("active", e => {
 self.addEventListener('fetch', function(event) {
   console.log("fecth event. fetching for " + event.request.url)
   fetchCache(event, e =>{
-    event.respondWith(e)
+   // event.respondWith(e)
   })
 });

@@ -13,6 +13,5 @@ $("#playbtn").on(' click ', () => {
 $("#GMCancel").on(' click ', () => {
   $("#cover, #GameMode").css("display", "none")
   $("#playbtn").css("display", "grid")
-
 });
 

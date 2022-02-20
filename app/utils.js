@@ -189,8 +189,7 @@ function isEnergy() {
 }
 
 function notEnergy() {
-	$("#alert").css("display", "block")
-	$("#playbtn").css("display", "grid")
+	$("#playbtn, #alert").css("display", "grid")
 	$("#cover, #GameMode").css("display", "none")
 	playSound(sounds.energy)
 

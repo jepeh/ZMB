@@ -118,15 +118,17 @@ html {
 #GameMode {
   position: absolute;
   width: 50vw;
-  height: 40vh;
+  height: 70vh;
   top: 50vh;
   left: 50vw;
   margin-left: -25vw;
-  margin-top: -20vh;
-  background: linear-gradient(130deg, #3F40489E, #30324A7D);
+  margin-top: -35vh;
   display: none;
   z-index: 7;
-  border-radius: 6px;
+  border-top: .1px solid #00EBFF;
+  border-bottom: .1px solid #00EBFF;
+  border-radius: 5px;
+  background: linear-gradient(#2BCDFF4F, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #2BCDFF4F);
   grid-template-rows: 10% 90%;
   animation: pop .4s cubic-bezier(0.19, 1, 0.22, 1)
 }
@@ -156,7 +158,7 @@ html {
   height: 100%;
   margin: auto;
   display: grid;
-  grid-template-rows: 80% 10%
+  grid-template-rows: 30% 30% 30% 5%
 }
 
 #console {
@@ -181,7 +183,7 @@ html {
 .GMDivs {
   position: relative;
   width: 90%;
-  height: 70%;
+  height: 80%;
   margin: auto;
   background-image: url("assets/images/farming.png");
   background-size: cover;
@@ -215,6 +217,7 @@ html {
   color: white;
   opacity: .7
 }
+
 #bomb::hover {
   transform: scale(1.2)
 }
@@ -602,14 +605,15 @@ html {
 
 #playbtn {
   position: absolute;
-  width: 80px;
+  width: 20vw;
   height: 30px;
-  background: linear-gradient(to right,  #425A5A00, #0FBAD599, #425A5A00);
-  left: 50%;
-  margin-left: -45px;
+  background: linear-gradient(to right, #425A5A00, #0FBAD599, #425A5A00);
+  left: 50vw;
+  margin-left: -10vw;
   display: grid;
   border-radius: 1px;
-  top: 80%;
+  top: 80vh;
+  border-top: 1px solid #29CDFF73;
   display: none;
   animation: pop .8s cubic-bezier(0.86, 0, 0.07, 1)
 }
@@ -621,7 +625,7 @@ html {
   color: #C3C6E7;
   font-family: 'QS-M';
   font-size: 3.2vh;
-  
+
 }
 
 
@@ -635,7 +639,7 @@ span {
   position: absolute;
   font-family: 'QS-L';
   margin: auto;
-  background: linear-gradient(to right, #425A5A00,#13CCC900, #0FBAD599,#13CCC900, #13CCC900);
+  background: linear-gradient(to right, #425A5A00, #13CCC900, #0FBAD599, #13CCC900, #13CCC900);
   width: 100vw;
   left: 50%;
   margin-left: -50vw;
@@ -932,33 +936,36 @@ span {
   overflow: hidden
 }
 
-#energy-container {
-  position: fixed;
-  width: 5vw;
-  background-color: none;
+#EaC {
+  position: relative;
+  width: 100%;
+  height: 100%;
   margin: auto;
-  right: 0;
-  margin-right: 10px;
-  margin-top: 10px;
-  display: none;
+  display: grid;
+  grid-template-columns: 20% 35% 35%
+}
+
+#energy-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
   opacity: 1;
-  grid-template-columns: 20% 80%;
-  animation: pop .8s cubic-bezier(0.19, 1, 0.22, 1)
+  grid-template-columns: 20% 50%;
 }
 
 #coin-container {
-  position: fixed;
-  width: 5vw;
+  position: relative;
+  width: 100%;
+  height: 100%;
   background-color: none;
   margin: auto;
-  right: 0;
-  margin-right: 70px;
-  margin-top: 10px;
-  display: none;
+  display: grid;
   opacity: 1;
-  grid-template-columns: 20% 80%;
-  animation: pop .8s cubic-bezier(0.19, 1, 0.22, 1)
+  grid-template-columns: 20% 50%;
 }
+
 
 #splash {
   position: absolute;
@@ -970,9 +977,11 @@ span {
 
 #energy-img {
   position: relative;
-  width: 65%;
+  width: 80%;
   margin: auto;
-  transform: rotate(-1deg)
+  transform: rotate(-1deg);
+  text-align: right;
+  margin-left: 10px
 }
 
 #energy-txt {
@@ -981,22 +990,22 @@ span {
   font-size: 2.3vh;
   color: white;
   margin: auto;
-  text-align: right;
+  text-align: left;
 }
 
 #coin-img {
   position: relative;
-  width: 65%;
+  width: 80%;
   margin: auto;
   text-align: right;
-  margin-right: 0px
+  margin-left: 10px;
 }
 
 #coin-txt {
   position: relative;
   font-family: 'QS-M';
   font-size: 2.3vh;
-  text-align: right;
+  text-align: left;
   color: white;
   margin: auto;
 }
@@ -1010,30 +1019,29 @@ span {
   margin-left: -15vw;
   top: 50vh;
   margin-top: -25vh;
-  z-index: 3;
+  z-index: 7;
   border-radius: 10px;
-  background-color: #000000AB;
+  background: linear-gradient(#FF6C6C94, #58E8FF94);
   color: white;
-  font-family: 'QS-L';
+  font-family: 'QS-M';
   font-size: 10px;
   text-align: right;
   padding: 10px;
   display: none;
+  grid-template-rows: 20% 20% 30%;
   animation: pop .3s cubic-bezier(0.19, 1, 0.22, 1)
 }
 
 #alert-txt {
   position: relative;
   text-align: center;
-  font-size: 2.6vh;
-  top: 10%;
+  font-size: 3vh;
 }
 
 #alert-txt2 {
   position: relative;
   text-align: center;
-  font-size: 2vh;
-  margin-top: 5%
+  font-size: 3vh;
 }
 
 #alert>img {
@@ -1042,22 +1050,70 @@ span {
   text-align: center;
   margin: auto;
   display: block;
-  top: 40vh;
 }
 
 #map {
   position: absolute;
   width: 90px;
-  height: 90px; 
+  height: 90px;
   background: radial-gradient(#0FBAD599, #06FFF800);
   left: 2.5vw;
   top: 50vh;
   margin-top: -45px;
-  display: none; 
+  display: none;
   z-index: 3;
   opacity: .8;
   border-radius: 5px;
-  }
+}
+
+#Top-Utils {
+  position: absolute;
+  width: 100vw;
+  height: 30px;
+  margin: auto;
+  display: none;
+  grid-template-columns: 30% 70%
+}
+
+#nav {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%
+}
+
+#Navigation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.navs {
+  position: relative;
+  width: 90%;
+  height: 70%;
+  margin: auto;
+  transform: skew(20deg);
+  justify-content: center;
+  align-items: center;
+  border-top: .5px solid #2BCDFF75;
+  background: linear-gradient(to right, #58E8FF4F, #58E8FF00)
+}
+
+.navs p {
+  position: relative;
+  margin: auto;
+  top: 10%;
+  font-size: 1vw;
+  font-family: "QS-L";
+  transform: skew(-20deg);
+  color: white;
+  text-align: center;
+}
 
 
 #atombomb {
@@ -1111,7 +1167,7 @@ span {
   margin-top: -2%;
   margin-left: 10px;
   font-family: 'QS-L';
-  font-size: 2.8vh;
+  font-size: 2vh;
   color: white;
 }
 
@@ -1292,93 +1348,134 @@ span {
 
 }
 
-#profile-div {
-  width: 100%;
-  height: 95%;
+#Profile {
+  position: absolute;
+  width: 20vw;
+  height: 20vw;
+  top: 2vh;
+  left: 2vh;
   display: grid;
-
-  margin: auto;
-  grid-template-rows: 10% 35% 55%
+  border-radius: 10px;
+  background: linear-gradient(to right, #29CDFF00, #29CDFF00, #29CDFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #00EBFF00, #2BCDFF4F);
+  border-right: .2px solid #29CDFF52;
+  border-top: .2px solid #29CDFF52;
+  border-bottom: .2px solid #29CDFF52;
+  grid-template-rows: 50% 25% 25%;
+  animation: pop .3s
 }
 
-#profile-title,
-#settings-title {
-  position: relative;
-  font-family: "QS-M";
-  font-size: 4vh;
-  text-align: left;
-  margin-left: 4.5vw;
-  color: white;
-}
-
-#profile-info-div {
+#Profile-div {
   position: relative;
   width: 100%;
   height: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: 30% 70%
-}
-
-#profile-stat-div {
-  position: relative;
-  width: 90%;
-  height: 80%;
-  margin: auto;
-  background-color: #232432A8;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, .09);
-  border-radius: 10px;
-}
-
-#profile-info-img {
-  position: relative;
-  width: 90%;
-  height: 100%;
-  margin-left: 25px;
-  border-radius: 10px;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center
-}
-
-#profile-info-img img {
-  position: relative;
-  width: 100%;
-}
-
-#profile-info-infos {
-  position: relative;
-  width: 80%;
-  height: 100%;
-  color: white;
-  display: grid;
-  background-color: #24263D4D;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, .09);
-  border-radius: 10px;
-  margin: auto;
-  grid-template-rows: 25% 25% 25% 25%;
   grid-template-columns: 50% 50%
 }
 
-#changeName {
+#Profile-img {
   position: relative;
-  font-size: 3vh;
-  text-align: left;
-  margin-top: 5px;
-  margin-left: 20px;
-  color: white;
+  width: 65%;
+  height: 65%;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-top: .1px solid #00EBFF85;
+  border-bottom: .6px solid #00EBFF85;
 }
 
-.profile-txt {
+#Profile-img img {
   position: relative;
-  font-family: 'QS-L';
-  font-size: 3vh;
-  text-align: left;
-  color: white;
-  margin-left: 20px;
-  margin-top: 5px;
+  width: 90%;
+  margin: auto;
+
 }
 
+#Hero {
+  position: relative;
+  width: 80%;
+  height: 60%;
+  text-align: center;
+  margin: auto;
+  background: linear-gradient(to right, #425A5A00, #0FBAD599, #42445A00);
+  transform: skew(-20deg)
+}
+
+#Profile-rank {
+  position: relative;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+  top: 50%;
+  margin-top: -30%;
+  margin-left: 1px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  overflow: hidden;
+}
+
+#Profile-rank img {
+  position: relative;
+  width: 60%;
+  margin: auto;
+}
+
+#Profile-rank p {
+  position: relative;
+  font-size: .7vw;
+  font-family: "QS-L";
+  color: white;
+}
+#Hero-Div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 50% 50%
+}
+#Hero-level {
+  position: relative;
+  width: 70%;
+  height: 45%;
+  background: linear-gradient(to right, #0FBAD599, #007075);
+  margin: auto;
+  border-radius: 2px;
+  display: grid;
+  transform: skew(-20deg);
+  grid-template-columns: 100%;
+
+}
+#Hero-level p{
+  position: relative;
+  text-align: center;
+  font-size: .7vw;
+  color: white;
+  margin: auto;
+  font-family: "QS-B"
+}
+
+#Hero-level-bar {
+  position: relative;
+  width: 80%;
+  height: 20%;
+  margin: auto;
+  margin-left: 1px;
+  border: .06px solid #36F7FF;
+  transform: skew(-20deg)
+}
+#Hero-level-bar div {
+  position: relative;
+  width: 30%;
+  height: 100%;
+ 
+  background: linear-gradient(to right, #9BFBFF, #1C84FF)
+}
 
 .ii {
   position: absolute;
@@ -1608,6 +1705,29 @@ span {
   font-family: "QS-B";
   z-index: 6;
   animation: pop .2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+}
+
+
+/*
+DISPLAY DIVS
+*/
+#Hero-Name {
+  position: relative;
+  margin: auto;
+  color: white;
+  font-size: 1.5vw;
+  font-family: "QS-B";
+
+}
+
+#Hero-Type {
+  position: relative;
+  margin: auto;
+  color: white;
+  font-size: .5vw;
+  font-family: "QS-L";
+
+
 }
 
 /*

@@ -366,7 +366,7 @@ var Game = (function(w, func) {
 
 
     // display logo
-    $("#coin-container, #energy-container, #settings, #coin-container").css('display', 'grid')
+    $("#Profile, #coin-container, #settings, #Top-Utils").css('display', 'grid')
 
     // initiate Level array
 
@@ -875,7 +875,7 @@ var Game = (function(w, func) {
     function startAnim(lvl) {
 
       CONTROLS.enabled = false
-      $("#cover, #GameMode, #playbtn, #logo, #settings, #energy-container, #coin-container, #version, #trademark")
+      $("#cover, #GameMode, #playbtn, #logo, #settings, #Top-Utils, #version, #trademark")
         .css("display", "none")
       character.position.set(0, 0, 0)
 
