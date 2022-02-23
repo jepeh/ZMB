@@ -333,10 +333,11 @@ var Game = (function(w, func) {
 
     window.CONTROLS = new OrbitControls(CAMERA, RENDERER.domElement)
     CONTROLS.enabled = true
-    CONTROLS.enablePan = true
-    CONTROLS.enableZoom = true
+   // CONTROLS.enablePan = false
+    //CONTROLS.enableZoom = false
     CONTROLS.minPolarAngle = -Math.PI / 4;
     CONTROLS.maxPolarAngle = Math.PI / 3;
+
 
     CLOCK.autoStart = false
     CLOCK.startTime = 0
@@ -604,7 +605,7 @@ var Game = (function(w, func) {
       character.receiveShadow = true
       character.castShadow = true
       character.rotation.y = -Math.PI / 4
-      CAMERA.position.set(0, 20, 20)
+      CAMERA.position.set(0, 30, 20)
       CAMERA.lookAt(character.position)
       SCENE.add(window.character)
     }
@@ -701,25 +702,39 @@ var Game = (function(w, func) {
 
 
     // STAGE
-    var stage = new Three.Mesh(new Three.CylinderGeometry(7, 7, 1.2, 30), [
+    var stage = new Three.Mesh(new Three.CylinderGeometry(7, 7, 1.2, 6), [
       new Three.MeshToonMaterial({
         transparent: true,
         map: mp
       }),
-      new Three.MeshPhongMaterial({color: "#2D3343"})])
+      new Three.MeshPhongMaterial({ color: "#2D3343" })])
     stage.castShadow = true
     stage.receiveShadow = true
-    
-    var stage2 = new Three.Mesh(new Three.CylinderGeometry(12, 12, .2, 30), [new Three.MeshToonMaterial({
+
+    var stage2 = new Three.Mesh(new Three.CylinderGeometry(12, 12, .2, 6), [new Three.MeshToonMaterial({
         transparent: true,
         map: mp
       }),
-      new Three.MeshPhongMaterial({color: "#2D3343"})])
+      new Three.MeshPhongMaterial({ color: "#2D3343" })])
     stage2.castShadow = true
     stage2.receiveShadow = true
-    
-    SCENE.add(stage, stage2)
 
+    SCENE.add(stage, stage2)
+    phys.addMesh(stage, 0)
+    phys.addMesh(stage2, 0)
+   
+    // SpotLight
+    var sl = new Three.SpotLight("blue")
+    sl.intensity = .5
+    sl.position.set(-20, 15, 0)
+    sl.rotation.x = -Math.PI/2
+    var sl2 = new Three.SpotLight("purple")
+    sl2.intensity = .5
+    sl2.position.set(20, 15, 0)
+    sl2.rotation.x = Math.PI/2
+
+    SCENE.add(sl, sl2)
+   
     /*
     ***********************************************
     MAIN GAME
@@ -897,7 +912,7 @@ var Game = (function(w, func) {
     function startAnim(lvl) {
 
       CONTROLS.enabled = false
-      $("#cover, #GameMode, #playbtn, #logo, #settings, #Top-Utils, #version, #trademark")
+      $("#Profile, #cover, #GameMode, #playbtn, #logo, #settings, #Top-Utils, #version, #trademark")
         .css("display", "none")
       character.position.set(0, 0, 0)
 
@@ -928,6 +943,7 @@ var Game = (function(w, func) {
         },
         onComplete: function() {
           nm = 0
+          SCENE.remove(sl, sl2)
           CAMERA.lookAt(character.position)
           // Start game
           $("#status").text("initiation completed!")

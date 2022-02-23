@@ -668,7 +668,7 @@ var FARM = {
 
     droppedCoins.length = 0
 
-    $("#map, #statcount, #counter, #life, #bombbar, #atombomb, #critical, #utils")
+    $("#Profile, #map, #statcount, #counter, #life, #bombbar, #atombomb, #critical, #utils")
       .css("display", "none")
 
     $("#joystick")
@@ -830,7 +830,7 @@ var FARM = {
     }
 
     // hide stats and joystick
-    $("#map, #statcount, #counter, #life, #bombbar, #atombomb, #utils")
+    $("#Profile, #map, #statcount, #counter, #life, #bombbar, #atombomb, #utils")
       .css("display", "none")
     $("#joystick")
       .css("opacity", "0")
