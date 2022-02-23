@@ -177,7 +177,15 @@ self.addEventListener("active", e => {
 
 self.addEventListener('fetch', function(event) {
   console.log("fecth event. fetching for " + event.request.url)
-  fetchCache(event, e =>{
-   // event.respondWith(e)
-  })
+  event.respondWith(
+    caches.match(event.request)
+    .then(e => {
+      if (e) {
+        console.log("found in cache")
+        return e
+      }
+
+      return fetch(event.request)
+    })
+  )
 });
