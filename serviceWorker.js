@@ -64,7 +64,7 @@ const ASSETS = [
 	"assets/audio/selectInv.wav",
 	"assets/audio/toggle.wav",
 	"assets/gltf/box.gltf",
-	"https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap",
+//	"https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap",
 	"assets/gltf/coin.gltf",
 	"assets/images/atomoff.png",
 	"assets/images/atomon.png",
@@ -136,6 +136,7 @@ const ASSETS = [
 async function preCache() {
   console.log("caching...")
   var cache = await caches.open("ASSETS")
+  console.log("cached")
   return cache.addAll(ASSETS)
 }
 
@@ -159,6 +160,9 @@ self.addEventListener('fetch', function(event) {
         return e
       }
       return fetch(event.request)
+    })
+    .catch(r =>{
+      console.log("not in cache "+ event.request.url)
     })
   )
 });
