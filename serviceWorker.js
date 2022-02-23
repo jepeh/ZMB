@@ -158,7 +158,7 @@ self.addEventListener('fetch', function(event) {
         console.log("found in cache")
         return e
       }
-     return fetch(event.request)
+      return fetch(event.request)
     })
   )
 });
