@@ -19,23 +19,6 @@ img {
   --height: 0;
 }
 
-@font-face {
-  font-family: 'QS-B';
-  src: url('assets/fonts/Quicksand-Bold.ttf')
-}
-
-@font-face {
-  font-family: 'QS-M';
-  src: url('assets/fonts/Quicksand-Medium.ttf')
-}
-
-@font-face {
-  font-family: 'QS-L';
-  src: url('assets/fonts/Quicksand-Light.ttf')
-}
-
-
-
 body,
 html {
   overflow: hidden;
@@ -93,7 +76,7 @@ html {
 #LANDSCAPEDetector p {
   position: relative;
   margin: auto;
-  font-family: "QS-B";
+  font-family: "Quicksand";
   font-size: 6vw;
 
   top: 50%;
@@ -138,7 +121,7 @@ html {
   width: 100%;
   text-align: center;
   color: white;
-  font-family: "QS-B";
+  font-family: "Quicksand";
   font-size: 2.8vh
 }
 
@@ -147,7 +130,7 @@ html {
   text-align: center;
   margin: auto;
   color: white;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   font-size: 4vh
 }
 
@@ -174,7 +157,7 @@ html {
 
 #console p {
   position: relative;
-  font-family: "QS-L";
+  font-family: "Quicksand";
   font-size: 10px;
   text-align: center
 }
@@ -196,7 +179,7 @@ html {
   position: relative;
   margin: auto;
   width: 100%;
-  font-family: "QS-B";
+  font-family: "Quicksand";
   font-size: 3.5vh;
   color: white;
   top: 35%;
@@ -211,7 +194,7 @@ html {
   top: 50%;
   margin-top: -12%;
   text-align: center;
-  font-family: 'QS-B';
+  font-family: 'Quicksand';
   font-size: 15px;
   color: white;
   opacity: .7
@@ -340,7 +323,7 @@ html {
   z-index: 2;
   font-size: 20px;
   color: white;
-  font-family: 'QS-B';
+  font-family: 'Quicksand';
   width: 10%;
   height: 5px;
   background: linear-gradient(to left, #06092754, #0FBAD599);
@@ -358,7 +341,7 @@ html {
   z-index: 2;
   font-size: 20px;
   color: white;
-  font-family: 'QS-B';
+  font-family: 'Quicksand';
   width: 10%;
   height: 3px;
   background: linear-gradient(to left, #06092754, #0FBAD599);
@@ -414,7 +397,7 @@ html {
   width: 40%;
   height: 80%;
   background: linear-gradient(to right, #425A5A00, #0FBAD599, #42445A00);
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   text-align: left;
   margin: auto;
   padding-top: 5px;
@@ -432,7 +415,7 @@ html {
   width: 25%;
   height: 80%;
   background: linear-gradient(to right, #425A5A00, #0FBAD599, #42445A00);
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   margin: auto;
   border-top: .5px solid #0EDEFFFC;
   margin-right: -5px;
@@ -472,7 +455,7 @@ html {
   background: linear-gradient(to right, #425A5A00, #0FBAD599, #42445A00);
   border-top: .5px solid #0EDEFFFC;
   transform: skew(-30deg);
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   color: white;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -509,7 +492,7 @@ html {
   display: grid;
   grid-template-columns: 50% 50%;
   color: white;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   animation: L 1.2s cubic-bezier(0.19, 1, 0.22, 1)
 }
 
@@ -537,7 +520,7 @@ html {
   width: 100%;
   height: 100%;
   font-size: 10px;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   left: -3%;
   opacity: .7;
   text-align: right
@@ -559,7 +542,7 @@ html {
   grid-template-columns: 100%;
   overflow: hidden;
   color: white;
-  font-family: "QS-M";
+  font-family: "Quicksand";
   border-top: 1px solid skyblue;
   text-align: center;
   justify-content: center;
@@ -590,7 +573,7 @@ html {
   position: relative;
   margin: auto;
   text-align: center;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   font-weight: 100;
   font-size: 3.5vh;
 }
@@ -622,7 +605,7 @@ html {
   text-align: center;
   margin: auto;
   color: #C3C6E7;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   font-size: 3.2vh;
 
 }
@@ -636,7 +619,7 @@ span {
 
 #counter {
   position: absolute;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   margin: auto;
   background: linear-gradient(to right, #425A5A00, #13CCC900, #0FBAD599, #13CCC900, #13CCC900);
   width: 100vw;
@@ -658,7 +641,7 @@ span {
   text-align: center;
   color: white;
   font-size: 3vh;
-  font-family: "QS-L"
+  font-family: "Quicksand"
 }
 
 .CInfo {
@@ -687,7 +670,7 @@ span {
 #graphicsStat p {
   position: relative;
   color: white;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   font-size: 1.7vh;
   margin: auto
 }
@@ -742,7 +725,7 @@ span {
   position: absolute;
   font-size: 15px;
   width: 100%;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   margin: auto;
   top: 20%;
   text-align: center;
@@ -804,7 +787,7 @@ span {
 #gameover {
   position: absolute;
   width: 100%;
-  font-family: 'QS-B';
+  font-family: 'Quicksand';
   font-size: 50px;
   text-align: center;
   color: white;
@@ -816,7 +799,7 @@ span {
 #time {
   position: absolute;
   width: 100%;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   text-align: center;
   font-size: 12px;
   color: white;
@@ -841,14 +824,14 @@ span {
   margin: auto;
   width: 100%;
   text-align: center;
-  font-family: "QS-M";
+  font-family: "Quicksand";
   font-size: 14px;
   color: white;
 }
 
 #gamewin {
   position: absolute;
-  font-family: 'QS-B';
+  font-family: 'Quicksand';
   font-size: 55px;
   text-align: center;
   color: white;
@@ -860,7 +843,7 @@ span {
 
 #gamewin2 {
   position: absolute;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   font-size: 15px;
   text-align: center;
   color: white;
@@ -893,7 +876,7 @@ span {
   margin: auto;
   margin-top: 8px;
   text-align: center;
-  font-family: 'QS-B';
+  font-family: 'Quicksand';
   font-size: 20px;
   color: #C3C6E7
 }
@@ -985,7 +968,7 @@ span {
 
 #energy-txt {
   position: relative;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   font-size: 2.3vh;
   color: white;
   margin: auto;
@@ -1002,7 +985,7 @@ span {
 
 #coin-txt {
   position: relative;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   font-size: 2.3vh;
   text-align: left;
   color: white;
@@ -1022,7 +1005,7 @@ span {
   border-radius: 10px;
   background: linear-gradient(#FF6C6C94, #58E8FF94);
   color: white;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   font-size: 10px;
   text-align: right;
   padding: 10px;
@@ -1108,7 +1091,7 @@ span {
   margin: auto;
   top: 10%;
   font-size: 1vw;
-  font-family: "QS-L";
+  font-family: "Quicksand";
   transform: skew(-20deg);
   color: white;
   text-align: center;
@@ -1165,7 +1148,7 @@ span {
   top: 100%;
   margin-top: -2%;
   margin-left: 10px;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   font-size: 2vh;
   color: white;
 }
@@ -1224,7 +1207,7 @@ span {
   text-align: center;
   top: 100%;
   margin-top: -10%;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   color: white
 }
 
@@ -1265,7 +1248,7 @@ span {
   position: relative;
   text-align: center;
   font-size: 12px;
-  font-family: 'QS-B'
+  font-family: 'Quicksand'
 }
 
 #ad {
@@ -1287,7 +1270,7 @@ span {
   position: relative;
   text-align: center;
   font-size: 4vw;
-  font-family: "QS-L";
+  font-family: "Quicksand";
 }
 
 #addRewards div {
@@ -1436,7 +1419,7 @@ span {
 #Profile-rank p {
   position: relative;
   font-size: .7vw;
-  font-family: "QS-L";
+  font-family: "Quicksand";
   color: white;
 }
 #Hero-Div {
@@ -1465,7 +1448,7 @@ span {
   font-size: .7vw;
   color: white;
   margin: auto;
-  font-family: "QS-B"
+  font-family: "Quicksand"
 }
 
 #Hero-level-bar {
@@ -1529,7 +1512,7 @@ span {
 
 #inv-header p {
   position: relative;
-  font-family: 'QS-M';
+  font-family: 'Quicksand';
   font-size: 5vw;
   text-align: left;
   margin-left: 20px;
@@ -1581,7 +1564,7 @@ span {
 .inv-lists {
   position: relative;
   width: 80%;
-  font-family: "QS-L";
+  font-family: "Quicksand";
   margin: auto;
   transform: skew(-30deg);
   color: white;
@@ -1641,7 +1624,7 @@ span {
 .Items p {
   position: relative;
   text-align: center;
-  font-family: "QS-B";
+  font-family: "Quicksand";
   font-size: 2vw;
   color: white
 }
@@ -1678,7 +1661,7 @@ span {
 #itempreview p {
   position: relative;
   text-align: center;
-  font-family: "QS-M";
+  font-family: "Quicksand";
   font-size: 3.5vh;
   color: white;
 
@@ -1692,7 +1675,7 @@ span {
   text-align: center;
   color: white;
   font-size: 2vh;
-  font-family: "QS-L"
+  font-family: "Quicksand"
 }
 
 #invuse {
@@ -1710,7 +1693,7 @@ span {
   transform: skew(-20deg);
   font-size: 5vw;
   display: none;
-  font-family: "QS-B";
+  font-family: "Quicksand";
   z-index: 6;
   animation: pop .2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 }
@@ -1724,7 +1707,7 @@ DISPLAY DIVS
   margin: auto;
   color: white;
   font-size: 1.5vw;
-  font-family: "QS-B";
+  font-family: "Quicksand";
 
 }
 
@@ -1733,7 +1716,7 @@ DISPLAY DIVS
   margin: auto;
   color: white;
   font-size: .5vw;
-  font-family: "QS-L";
+  font-family: "Quicksand";
 
 
 }

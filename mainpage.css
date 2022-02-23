@@ -4,14 +4,6 @@
 	margin: auto;
 	box-sizing: border-box
 }
-@font-face {
-	font-family: 'QS-B';
-	src: url('assets/fonts/Quicksand-Bold.ttf')
-}
-@font-face {
-	font-family: 'QS-L';
-	src: url('assets/fonts/Quicksand-Light.ttf')
-}
 
 body {
 
@@ -53,7 +45,7 @@ background-color: black
 	border-radius: 10px;
 	font-size: 1.9vh;
 	color: white;
-	font-family: 'QS-B';
+	font-family: 'Quicksand';
 	text-align: center;
 	padding-top: 5px;
 }
@@ -64,7 +56,7 @@ background-color: black
 #title {
 	position: absolute;
 	font-size: 6vw;
-	font-family: "QS-B";
+	font-family: "Quicksand";
 	width: 100vw;
 	color: white;
 	top: 140%;
@@ -73,7 +65,7 @@ background-color: black
 #description {
 	position: absolute;
 	font-size: 4vw;
-	font-family: "QS-L";
+	font-family: "Quicksand";
 	width: 90vw;
 	left: 50vw;
 	margin-left: -45vw;
@@ -99,7 +91,7 @@ background-color: black
 #mode {
 	position: absolute;
 	font-size: 6vw;
-	font-family: "QS-B";
+	font-family: "Quicksand";
 	width: 100vw;
 	color: white;
 	top: 170%;
@@ -108,7 +100,7 @@ background-color: black
 #modedes {
 	position: absolute;
 	font-size: 4vw;
-	font-family: "QS-L";
+	font-family: "Quicksand";
 	width: 90vw;
 	left: 50vw;
 	margin-left: -45vw;
@@ -120,7 +112,7 @@ background-color: black
 #CR {
 	position: absolute;
 	font-size: 2vw;
-	font-family: "QS-L";
+	font-family: "Quicksand";
 	top: 220%;
 	text-align: center;
 	width: 100vw;
@@ -140,7 +132,7 @@ background-color: black
   border-radius: 10px;
   background-color: #000000AB;
   color: white;
-  font-family: 'QS-L';
+  font-family: 'Quicksand';
   font-size: 10px;
   text-align: right;
   padding: 10px;
