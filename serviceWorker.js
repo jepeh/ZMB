@@ -139,25 +139,6 @@ async function preCache() {
   return cache.addAll(ASSETS)
 }
 
-async function fetchCache(event, cb) {
-  try {
-    await caches.match(event.request).then(e => {
-      if (e === undefined) {
-        console.log("fetching from network")
-        fetch(event.request).then(ee => {
-          cb(ee)
-        })
-      } else {
-        console.log("found in cache")
-        cb(e)
-      }
-    })
-  }
-  catch {
-    console.log("something went wrong")
-  }
-}
-
 self.addEventListener("install", (installEvent) => {
   console.log("installed, caching files")
   installEvent.waitUntil(preCache())
@@ -177,8 +158,7 @@ self.addEventListener('fetch', function(event) {
         console.log("found in cache")
         return e
       }
-
-      return fetch(event.request)
+     return fetch(event.request)
     })
   )
 });

@@ -1,4 +1,4 @@
-import * as Sounds from '../app/audio.js'
+import * as Sounds from '/app/audio.js'
 
 var JoyStick = (function(container, parameters)
 {

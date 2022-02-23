@@ -1,5 +1,5 @@
-import { Profile } from '../profiles/profile.js'
-import * as Three from '../src/three.js'
+import { Profile } from '/profiles/profile.js'
+import * as Three from '/src/three.js'
 
 var rewards = {
 	a: function() {

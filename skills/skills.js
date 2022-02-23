@@ -1,8 +1,8 @@
-import * as Three from '../src/three.js'
-import { GAME } from '../app/script.js'
-import * as Utils from "../app/utils.js"
-import * as Sounds from "../app/audio.js"
-import Particles from '../app/systems/particle.js'
+import * as Three from '/src/three.js'
+import { GAME } from '/app/script.js'
+import * as Utils from "/app/utils.js"
+import * as Sounds from "/app/audio.js"
+import Particles from '/app/systems/particle.js'
 
 var Skills = [
   {

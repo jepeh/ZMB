@@ -1,22 +1,22 @@
-import * as Three from '../src/three.js'
-import { RoundedBoxGeometry } from '../src/RoundedBoxGeometry.js'
-import { Profile } from '../profiles/profile.js'
-import { GAME } from '../app/script.js'
-import * as Sounds from '../app/audio.js'
-import * as Utils from '../app/utils.js'
-import rewards from '../app/rewards.js'
-import { FARM } from '../app/modes/farm.js'
-import { Bullets, bulletSprite } from '../app/bullets/bullet.js'
-import { OBJLoader } from '../src/Loader/OBJLoader.js'
-import Particles from '../app/systems/particle.js'
-import { GLTFLoader } from '../src/Loader/GLTFLoader.js'
+import * as Three from '/src/three.js'
+import { RoundedBoxGeometry } from '/src/RoundedBoxGeometry.js'
+import { Profile } from '/profiles/profile.js'
+import { GAME } from '/app/script.js'
+import * as Sounds from '/app/audio.js'
+import * as Utils from '/app/utils.js'
+import rewards from '/app/rewards.js'
+import { FARM } from '/app/modes/farm.js'
+import { Bullets, bulletSprite } from '/app/bullets/bullet.js'
+import { OBJLoader } from '/src/Loader/OBJLoader.js'
+import Particles from '/app/systems/particle.js'
+import { GLTFLoader } from '/src/Loader/GLTFLoader.js'
 
 window.ModelLoader = new GLTFLoader()
 var COIN;
 window.TxtLoader = new Three.TextureLoader();
 
 async function getCoin() {
-  ModelLoader.load('../assets/gltf/coin.gltf', e => {
+  ModelLoader.load('assets/gltf/coin.gltf', e => {
 
     var mesh = e.scene.children[0]
     mesh.children.shift()

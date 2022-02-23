@@ -1,26 +1,25 @@
-"use strict";
 
-import * as Three from '../src/three.js'
-import { RoundedBoxGeometry } from '../src/RoundedBoxGeometry.js'
-import { OrbitControls } from '../src/OrbitControls.js'
-import { JoyStick } from '../controller/joy.js'
-import { CharacterControls } from '../controller/controller.js'
-import * as Character from '../characters/character.js'
-import { Profile, Levels, Sounds, User } from '../profiles/profile.js'
-import { OimoPhysics } from '../src/OimoPhysics.js'
-import { drawMap } from '../app/map/map.js'
+import * as Three from '/src/three.js'
+import { RoundedBoxGeometry } from '/src/RoundedBoxGeometry.js'
+import { OrbitControls } from '/src/OrbitControls.js'
+import { JoyStick } from '/controller/joy.js'
+import { CharacterControls } from '/controller/controller.js'
+import * as Character from '/characters/character.js'
+import { Profile, Levels, Sounds, User } from '/profiles/profile.js'
+import { OimoPhysics } from '/src/OimoPhysics.js'
+import { drawMap } from '/app/map/map.js'
 import * as Utils from './utils.js'
 import * as Sound from './audio.js'
-import { GLTFLoader } from '../src/Loader/GLTFLoader.js'
-import Skills from '../skills/skills.js'
-import { FARM } from '../app/modes/farm.js'
-import { Bullets } from "../app/bullets/bullet.js"
-import { FontLoader } from "../src/Loader/FontLoader.js"
-import { TextGeometry } from '../src/TextGeometry.js'
-import { OBJLoader } from '../src/Loader/OBJLoader.js'
-import { MTLLoader } from '../src/Loader/MTLLoader.js'
-import Particles from '../app/systems/particle.js'
-import Stats from '../src/Stats.js'
+import { GLTFLoader } from '/src/Loader/GLTFLoader.js'
+import Skills from '/skills/skills.js'
+import { FARM } from '/app/modes/farm.js'
+import { Bullets } from "/app/bullets/bullet.js"
+import { FontLoader } from "/src/Loader/FontLoader.js"
+import { TextGeometry } from '/src/TextGeometry.js'
+import { OBJLoader } from '/src/Loader/OBJLoader.js'
+import { MTLLoader } from '/src/Loader/MTLLoader.js'
+import Particles from '/app/systems/particle.js'
+import Stats from '/src/Stats.js'
 
 window.ObjectLoader = new OBJLoader()
 window.MaterialLoader = new MTLLoader()

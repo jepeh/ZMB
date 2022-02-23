@@ -1,9 +1,9 @@
-import { Profile, Sounds } from "../profiles/profile.js"
+import { Profile, Sounds } from "/profiles/profile.js"
 import * as sounds from './audio.js'
-import * as Three from '../src/three.js'
+import * as Three from '/src/three.js'
 import { GAME } from './script.js'
 import { FARM } from './modes/farm.js'
-import { TextGeometry } from "../src/TextGeometry.js"
+import { TextGeometry } from "/src/TextGeometry.js"
 
 $("#thanks").on('click', () => {
 	$("#cover, #ccnscvr").css("display", "none")

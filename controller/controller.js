@@ -1,4 +1,4 @@
-import * as THREE from '../src/three.js'
+import * as THREE from '/src/three.js'
 
 
 function CharacterControls(scene, model, orbitControl, camera) {
