@@ -1,4 +1,3 @@
-
 * {
   padding: 0;
   margin: 0;
@@ -1164,17 +1163,6 @@ span {
   margin-left: -8vw;
 }
 
-.ccns {
-  position: absolute;
-  width: 90%;
-  top: 50%;
-  margin-top: -70%;
-  text-align: center;
-  left: 50%;
-  margin-left: -45%;
-  z-index: 6
-}
-
 #cover {
   position: absolute;
   width: 100%;
@@ -1186,30 +1174,29 @@ span {
 
 #ccnscvr {
   position: absolute;
-  background: linear-gradient(to left, #22253F, #40C7FFA8, #22253F);
-  top: 35%;
+  background: linear-gradient(to left, #42445A00, #22253F, #40C7FFA8, #22253F, #42445A00);
   border-top: 1px solid #07739F;
-  height: 20%;
-  width: 0%;
-  left: 50%;
-  margin-left: -0%;
-  margin-top: -10%;
+  height: 35vh;
+  width: 0vw;
+  left: 50vw;
+  top: 20vh;
   z-index: 6;
-  display: none;
+  display: grid;
+  grid-template-columns: 100%;
+  text-align: center;
   animation: cc .9s cubic-bezier(0.19, 1, 0.22, 1);
   animation-fill-mode: forwards
 }
 
-#ccnscvr p {
-  position: absolute;
-  width: 100%;
+#cns {
+  position: relative;
+  width: 50%;
+  left: 50%;
   margin: auto;
-  text-align: center;
-  top: 100%;
-  margin-top: -10%;
-  font-family: 'Quicksand';
-  color: white
+  margin-left: -25%;
+  margin-top: -20%
 }
+
 
 #rewards {
   position: absolute;
@@ -1235,20 +1222,21 @@ span {
 }
 
 #confirm {
-  position: relative;
-  width: 50%;
+  position: absolute;
+  width: 40vw;
   display: grid;
+  top: 60vh;
   grid-template-columns: 50% 50%;
   left: 50%;
-  margin-left: -25%;
-  top: 120%;
+  margin-left: -20vw;
+  color: white;
+  font-size: 2vw;
+  font-family: "Quicksand"
 }
 
 #confirm p {
   position: relative;
   text-align: center;
-  font-size: 12px;
-  font-family: 'Quicksand'
 }
 
 #ad {
@@ -1258,49 +1246,48 @@ span {
 }
 
 #addRewards {
+  position: absolute;
+  width: 40vw;
+  height: 50px;
+ 
+  display: grid;
+  left: 50vw;
+  top: 75vh;
+  margin-left: -20vw;
+  grid-template-rows: 10% 90%
+}
+#addP {
+  position: relative;
+  font-size: 2vw;
+  color: white;
+  font-family: "Quicksand";
+  text-align: center;
+  margin: auto;
+}
+#rewardsDiv {
   position: relative;
   width: 100%;
-  height: 50%;
-  display: grid;
-  grid-template-rows: 10% 90%;
-  top: 170%;
-}
-
-#addRewards p {
-  position: relative;
-  text-align: center;
-  font-size: 4vw;
-  font-family: "Quicksand";
-}
-
-#addRewards div {
-  position: relative;
-  width: 70%;
   height: 100%;
-  left: 50%;
-  margin-left: -35%;
+  margin: auto;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 33.3% 33.3% 33.3%
 }
-
-#addRewards div div {
-  position: relative;
-  width: 70%;
-  height: 95%;
-  display: grid;
-  grid-template-rows: 95% 5%;
-}
-
-#addRewards div div img {
-  position: relative;
-  width: 130%;
-  left: 85%;
+.addRewardsDiv {
+  position: relative; 
+  width: 100%;
+  height: 90%;
+  margin: auto;
   text-align: center
 }
-
-#addRewards div div p {
+.addRewardsDiv img {
   position: relative;
-  top: 50%
+  width: 20%;
+  margin: auto
+}
+.addRewardsDiv p {
+  font-size: 2vw;
+  color: white;
+  font-family: "Quicksand"
 }
 
 #settings-wrapper {
@@ -1345,6 +1332,7 @@ span {
   grid-template-rows: 50% 25% 25%;
   animation: pop .3s
 }
+
 #hh {
   position: absolute;
   width: 5px;
@@ -1422,6 +1410,7 @@ span {
   font-family: "Quicksand";
   color: white;
 }
+
 #Hero-Div {
   position: relative;
   width: 100%;
@@ -1430,6 +1419,7 @@ span {
   display: grid;
   grid-template-columns: 50% 50%
 }
+
 #Hero-level {
   position: relative;
   width: 70%;
@@ -1442,7 +1432,8 @@ span {
   grid-template-columns: 100%;
 
 }
-#Hero-level p{
+
+#Hero-level p {
   position: relative;
   text-align: center;
   font-size: .7vw;
@@ -1460,11 +1451,12 @@ span {
   border: .06px solid #36F7FF;
   transform: skew(-20deg)
 }
+
 #Hero-level-bar div {
   position: relative;
   width: 30%;
   height: 100%;
- 
+
   background: linear-gradient(to right, #9BFBFF, #1C84FF)
 }
 
@@ -1843,14 +1835,14 @@ ANIMATIONS
 
 @keyframes cc {
   from {
-    width: 0%;
-    left: 50%;
+    width: 0vw;
+    left: 50vw;
   }
 
   to {
-    width: 70%;
-    left: 50%;
-    margin-left: -35%;
+    width: 100vw;
+    left: 50vw;
+    margin-left: -50vw;
   }
 }
 

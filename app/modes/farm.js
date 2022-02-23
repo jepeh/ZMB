@@ -967,7 +967,7 @@ var FARM = {
 
       // REWARDS TIME
       var o = setTimeout(() => {
-        $("#cover, #ccnscvr").css("display", "block")
+        $("#cover, #ccnscvr, #confirm, #addRewards").css("display", "block")
         clearTimeout(o)
       }, 800)
       return;
