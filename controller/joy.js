@@ -239,7 +239,7 @@ var JoyStick = (function(container, parameters)
 		joy.GetMouseDir(event);
 	}
 
-	function onMouseUp(event)
+	function onKeyUp(event)
 	{
 		keyPressed = ""
 	}
