@@ -150,7 +150,7 @@ self.addEventListener("active", e => {
 })
 
 self.addEventListener('fetch', function(event) {
-  console.log("fecth event. fetching for " + event.request.url)
+  console.log("fetching for " + event.request.url)
   event.respondWith(
     caches.match(event.request)
     .then(e => {
