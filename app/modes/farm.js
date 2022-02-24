@@ -747,10 +747,8 @@ var FARM = {
       window.hero.bullets = Profile.bombs
       Profile.atomLevel = 0
 
-
-      var newUrl = new URL(window.location.href)
-      newUrl.searchParams.set("isPlaying", true)
-      window.location.href = newUrl
+       console.log("reloading...")
+       window.location.reload()
 
     })
 
@@ -944,7 +942,7 @@ var FARM = {
       for (var rw = 0; rw < window.addRewards.length; rw++) {
         switch (addRewards[rw].type) {
           case "coin":
-            rewardsArr[0].value += addRewards[rw].value
+            rewardsArr[0].value += addRewards[rw].value 
             break;
           case "key":
             rewardsArr[1].value += addRewards[rw].value
@@ -954,15 +952,14 @@ var FARM = {
             break;
         }
       }
+      
+      rewardsArr[0].value += 100;
 
       // append rewards to banner
 
       for (var y = 0; y < 3; y++) {
         $(`#reward${y}`).text("+" + rewardsArr[y].value)
       }
-
-      $("#ccnscvr").prepend(`	<img id="cns" src="assets/images/coin_reward.png" alt="" />
-			<p id="ccnscoin">+100 Coins</p>`)
 
       // REWARDS TIME
       var o = setTimeout(() => {

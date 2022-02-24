@@ -79,8 +79,6 @@ var Game = (function(w, func) {
   // Check if browser support WebGL
 
   if (w) {
-    var loc = new URL(window.location.href)
-
     // morph window device pixel ratio
     //	window.devicePixelRatio = 2
 
@@ -130,12 +128,13 @@ var Game = (function(w, func) {
 
     // Fetch or Save FB Player Data
 
-    loc.searchParams.get("isPlaying") ? play(true) : play(true)
+    sessionStorage.getItem("new_Session") ? playResume(true) : play(true)
 
   }
 
   function play(FB) {
 
+    sessionStorage.setItem("new_Session", true)
 
     $("body").append(`<img id="splash" src="assets/images/blockgameswhite.png"/>`)
     $("body").css({ background: 'white', transition: 'all 2s' })
@@ -170,17 +169,24 @@ var Game = (function(w, func) {
   }
 
   function playResume(FB) {
-    //	alert("resuming")
-    //	$("#loader").css("display", "block");
+
+    sessionStorage.setItem("new_Session", true)
+
+    $("#loader").css("display", "block");
     var hu = setTimeout(() => {
       $("#loader").css("display", "none")
-      func(FB)
+
+      window.hero.renderHero((c) => {
+        window.character = c
+        func(FB)
+      })
       clearTimeout(hu)
     }, 2000)
 
   }
 
 })(window || this, function(Facebook) {
+
 
 
   // Fetch FB User Data
@@ -374,7 +380,7 @@ var Game = (function(w, func) {
         cnt++;
         Levels.levels.push({
           level: cnt,
-          enemy: cnt > 10 ? cnt > 30 ? 80 : 50 : 30
+          enemy: cnt > 10 ? cnt > 30 ? 80 : 50 : 1
         })
       } while (cnt <= 50)
     }
@@ -1090,22 +1096,22 @@ var Game = (function(w, func) {
     }
     Obj.tips = tips
 
-    var cPos = {x: 0, y: 0}
+    var cPos = { x: 0, y: 0 }
     var mPos = {
       x: -12.471,
       y: 89.593
     }
-    
-    Obj.animateCoin = function( cc ) {
-      
+
+    Obj.animateCoin = function(cc) {
+
       TweenMax.to(cPos, 1, {
         x: mPos.x,
         y: mPos.y,
-        onUpdate: ()=>{
-         $(`#${cc}`).css({
-           top: cPos.y+"px",
-           left: cPos.x+"px"
-         })
+        onUpdate: () => {
+          $(`#${cc}`).css({
+            top: cPos.y + "px",
+            left: cPos.x + "px"
+          })
         }
       })
     }

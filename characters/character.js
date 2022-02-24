@@ -383,12 +383,12 @@ class Hero {
 
         droppedCoins[b].position.y = 2
         Profile.coins = Profile.coins + droppedCoins[b].val
-        
-        
+
+
         var cp = `<img src="assets/images/coin.png" class="coinsPop"/>`
-     
+
         $("body").append(cp)
-       
+
         // dlete coins from array and scene
 
 
@@ -1277,8 +1277,9 @@ var EnemyBoss = function() {
             z: 2,
             onComplete: function() {
 
-              self.summonZombies()
-
+              if (window.inGame) {
+                self.summonZombies()
+              } 
 
               TweenMax.to(plane.scale, 1, {
                 x: 0,
@@ -1513,7 +1514,7 @@ class defaultHero extends Hero {
       for (var i = 0; i < e.children.length; i++) {
         e.children[i].material = new Three.MeshToonMaterial({ color: e.children[i].name })
       }
-      
+
       this.mesh = e
       cb(this.mesh)
     })
@@ -1597,7 +1598,7 @@ class defaultHero extends Hero {
                     })
                   }
                 })
-                
+
                 TweenMax.to(right.scale, .2, {
                   y: .4,
                   onComplete: function() {

@@ -1208,6 +1208,7 @@ span {
   margin-left: -25%;
   display: none;
   text-align: center;
+  z-index: 6;
   animation: cc2 .2s cubic-bezier(0.19, 1, 0.22, 1)
 }
 
@@ -1230,6 +1231,7 @@ span {
   left: 50%;
   margin-left: -20vw;
   color: white;
+  z-index: 6;
   font-size: 2vw;
   font-family: "Quicksand"
 }
@@ -1249,7 +1251,7 @@ span {
   position: absolute;
   width: 40vw;
   height: 50px;
- 
+ z-index: 6;
   display: none;
   left: 50vw;
   top: 75vh;

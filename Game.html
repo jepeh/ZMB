@@ -168,7 +168,7 @@
     <p id="bulletCount">Bullets x</p>
     <div id="coins">
       <p>100</p>
-      <img src="assets/images/coin.png" id="cMark"/>
+      <img src="assets/images/coin.png" id="cMark" />
     </div>
     <div id="keysCount">
       <img src="assets/images/key.png" />
@@ -199,6 +199,7 @@
   <img src="assets/images/logo2.png" id="trademark" />
   <div id="cover"></div>
   <div id="ccnscvr">
+    <img src="assets/images/coin_reward.png" id="cns" />
   </div>
   <div id="confirm">
     <p id="ad">Watch Ad x2</p>
@@ -249,7 +250,25 @@
 	
 	<script src n="https://connect.facebook.net/en_US/fbinstant.6.3.js"></script>
 ---->
-  <script type="module" src="/main.js"></script>
+  <script type="module">
+    import { GAME } from '/app/script.js'
+    import * as Utils from '/app/utils.js'
+    import * as Sounds from '/app/audio.js'
+    //import * as T from './src/three.js'
+
+    $("#playbtn").on(' click ', () => {
+      $("#cover, #GameMode").css("display", "grid")
+      $("#playbtn").css("display", "none")
+      Utils.playSound(Sounds.gameMode)
+    });
+
+
+    $("#GMCancel").on(' click ', () => {
+      $("#cover, #GameMode").css("display", "none")
+      $("#playbtn").css("display", "grid")
+    });
+    
+  </script>
   <script src="src/jquery-3.6.0.js"></script>
   <script src="src/jquery.easypiechart.min.js"></script>
   <script src="src/TweenMax.min.js"></script>

@@ -4,7 +4,6 @@ const ASSETS = [
 	"style.css",
 	"App.js",
 	"mainpage.css",
-	"main.js",
 	"serviceWorker.js",
 	"manifest.json",
 	"app/script.js",
@@ -166,3 +165,5 @@ self.addEventListener('fetch', function(event) {
     })
   )
 });
+
+location.reload(true)

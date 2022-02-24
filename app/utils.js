@@ -6,14 +6,12 @@ import { FARM } from './modes/farm.js'
 import { TextGeometry } from "/src/TextGeometry.js"
 
 $("#thanks").on('click', () => {
-	$("#cover, #ccnscvr").css("display", "none")
+	$("#cover, #ccnscvr, #confirm, #addRewards").css("display", "none")
 	Profile.coins = Profile.coins + 100
 	$("#coin-txt").text(Profile.coins)
-
-	var newUrl = new URL(window.location.href)
-	newUrl.searchParams.set("isPlaying", true)
-	window.location.href = newUrl
-
+  console.log("reloading..")
+	window.location.reload()
+  
 })
 
 $("#music").on('click', function() {
