@@ -241,7 +241,7 @@ var Skills = [
 	},
   {
     name: "forceField",
-    duration: 19000,
+    duration: 12000,
     func: function(p) {
       const field = new Three.Mesh(new Three.SphereGeometry(6), new Three.MeshToonMaterial())
       p.addMesh(field, 1)

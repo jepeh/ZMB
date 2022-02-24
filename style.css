@@ -1181,7 +1181,7 @@ span {
   left: 50vw;
   top: 20vh;
   z-index: 6;
-  display: grid;
+  display: none;
   grid-template-columns: 100%;
   text-align: center;
   animation: cc .9s cubic-bezier(0.19, 1, 0.22, 1);
@@ -1224,7 +1224,7 @@ span {
 #confirm {
   position: absolute;
   width: 40vw;
-  display: grid;
+  display: none;
   top: 60vh;
   grid-template-columns: 50% 50%;
   left: 50%;
@@ -1250,7 +1250,7 @@ span {
   width: 40vw;
   height: 50px;
  
-  display: grid;
+  display: none;
   left: 50vw;
   top: 75vh;
   margin-left: -20vw;
@@ -1803,7 +1803,29 @@ LOADER
   animation: red 1s cubic-bezier(0.19, 1, 0.22, 1) infinite
 }
 
+.coinsPop {
+  position: absolute;
+  width: 6vh;
+  left: 50vw;
+  top: 50vh;
+  margin-left: -3vh;
+  margin-top: -3vh;
+  z-index: 7;
+  text-align: center;
+  animation: cpop 2s cubic-bezier(0.19, 1, 0.22, 1) forwards
+}
 
+.keyPop {
+  position: absolute;
+  width: 6vh;
+  left: 50vw;
+  top: 50vh;
+  margin-left: -3vh;
+  margin-top: -3vh;
+  z-index: 7;
+  text-align: center;
+  animation: kpop 2.5s cubic-bezier(0.19, 1, 0.22, 1) forwards
+}
 
 
 /*
@@ -1811,6 +1833,30 @@ LOADER
 ANIMATIONS
 
 */
+@keyframes cpop {
+  from {
+    transform: scale(1.4)
+  }
+  to {
+    transform: scale(1);
+    left: 10.47px;
+    top: 89.59px;
+    opacity: 0;
+    display: none
+  }
+}
+@keyframes kpop {
+  from {
+    transform: scale(1.4)
+  }
+  to {
+    transform: scale(1);
+    left: 90vw;
+    top: 89.59px;
+    opacity: 0;
+    display: none
+  }
+}
 
 @keyframes red {
   from {

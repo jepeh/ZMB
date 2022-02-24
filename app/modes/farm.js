@@ -31,7 +31,6 @@ var FARM = {
     $('.chart').data('easyPieChart').update(Profile.atomLevel)
 
     // light
-
     
     Utils.stopSound(Sound.mainMusic)
     Utils.playMusic(Sound.FarmMode)
@@ -87,7 +86,7 @@ var FARM = {
     **************************************************/
 
     // Fog
-    
+
     var tp = setTimeout(() => {
       $("#tips").css({ width: "0%", left: "50%", marginLeft: "-0%" })
       clearTimeout(tp)
@@ -136,7 +135,7 @@ var FARM = {
     if ("ontouchstart" in document.documentElement) {
       document.getElementById("atombomb").addEventListener('touchstart', () => {
 
-        if (Profile.atomLevel >= 0 && bmb) {
+        if (Profile.atomLevel >= 100 && bmb) {
           bmb = false
           var arrS = enemies.length >= 1 ? enemies : babyZombies
           window.atom = new Utils.Atom(SCENE, phys, arrS)
@@ -165,16 +164,16 @@ var FARM = {
       $("#Skill3").on("touchstart", e => {
         thirdSkill(e)
       })
-      
-      $("#map").on("touchstart", ()=>{
+
+      $("#map").on("touchstart", () => {
         $("#map").css({
           transform: "scale(3)",
           left: "50vw",
           marginLeft: "-45px"
         })
       })
-      
-      $("#map").on("touchend", ()=>{
+
+      $("#map").on("touchend", () => {
         $("#map").css({
           transform: "scale(1)",
           left: "2.5vw",
@@ -585,7 +584,7 @@ var FARM = {
   },
 
   gameOver: function() {
-    
+
     if (window.bossGame) {
       var b = SCENE.getObjectByName("boss")
       b.traverse(e => {
@@ -602,7 +601,7 @@ var FARM = {
     Utils.playSound(Sound.gameOver)
     Utils.stopSound(Sound.FarmMode)
     Utils.stopSound(Sound.EnemyBoss)
-    
+
 
     // stop clock
 
@@ -759,7 +758,7 @@ var FARM = {
   gameWin: function() {
     Utils.stopSound(Sound.EnemyBoss)
     GAME.exciteCharacter()
-    
+
     $(".ccns, #ccnscoin, #critical").remove()
     Utils.playSound(Sound.gameWin)
     Utils.stopSound(Sound.FarmMode)
@@ -962,12 +961,12 @@ var FARM = {
         $(`#reward${y}`).text("+" + rewardsArr[y].value)
       }
 
-      $("#ccnscvr").prepend(`	<img class="ccns" src="assets/images/coin_reward.png" alt="" />
+      $("#ccnscvr").prepend(`	<img id="cns" src="assets/images/coin_reward.png" alt="" />
 			<p id="ccnscoin">+100 Coins</p>`)
 
       // REWARDS TIME
       var o = setTimeout(() => {
-        $("#cover, #ccnscvr, #confirm, #addRewards").css("display", "block")
+        $("#cover, #ccnscvr, #confirm, #addRewards").css("display", "grid")
         clearTimeout(o)
       }, 800)
       return;
@@ -975,7 +974,7 @@ var FARM = {
     return;
   },
   EnemyBoss: function() {
-   
+
     Utils.stopSound(Sound.FarmMode)
     Utils.playMusic(Sound.EnemyBoss)
 

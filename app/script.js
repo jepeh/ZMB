@@ -1,4 +1,3 @@
-
 import * as Three from '/src/three.js'
 import { RoundedBoxGeometry } from '/src/RoundedBoxGeometry.js'
 import { OrbitControls } from '/src/OrbitControls.js'
@@ -290,7 +289,6 @@ var Game = (function(w, func) {
   $(".e-TXT").text(Profile.energy)
   $(".c-TXT").text(Profile.coins)
 
-
   var world = OimoPhysics().then(phys => {
 
     $("#loader").css('display', 'none')
@@ -332,7 +330,7 @@ var Game = (function(w, func) {
 
     window.CONTROLS = new OrbitControls(CAMERA, RENDERER.domElement)
     CONTROLS.enabled = true
-   // CONTROLS.enablePan = false
+    // CONTROLS.enablePan = false
     //CONTROLS.enableZoom = false
     CONTROLS.minPolarAngle = -Math.PI / 4;
     CONTROLS.maxPolarAngle = Math.PI / 3;
@@ -721,19 +719,19 @@ var Game = (function(w, func) {
     SCENE.add(stage, stage2)
     phys.addMesh(stage, 0)
     phys.addMesh(stage2, 0)
-   
+
     // SpotLight
     var sl = new Three.SpotLight("blue")
     sl.intensity = .5
     sl.position.set(-20, 15, 0)
-    sl.rotation.x = -Math.PI/2
+    sl.rotation.x = -Math.PI / 2
     var sl2 = new Three.SpotLight("purple")
     sl2.intensity = .5
     sl2.position.set(20, 15, 0)
-    sl2.rotation.x = Math.PI/2
+    sl2.rotation.x = Math.PI / 2
 
     SCENE.add(sl, sl2)
-   
+
     /*
     ***********************************************
     MAIN GAME
@@ -1092,6 +1090,25 @@ var Game = (function(w, func) {
     }
     Obj.tips = tips
 
+    var cPos = {x: 0, y: 0}
+    var mPos = {
+      x: -12.471,
+      y: 89.593
+    }
+    
+    Obj.animateCoin = function( cc ) {
+      
+      TweenMax.to(cPos, 1, {
+        x: mPos.x,
+        y: mPos.y,
+        onUpdate: ()=>{
+         $(`#${cc}`).css({
+           top: cPos.y+"px",
+           left: cPos.x+"px"
+         })
+        }
+      })
+    }
 
 
     Obj.findTarget = function(arr, pos) {

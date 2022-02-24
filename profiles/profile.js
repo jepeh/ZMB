@@ -12,7 +12,7 @@ let Profile = {
   energy: 10,
   mapRadius: 150,
   atomBombRadius: 20,
-  atomLevel: 100,
+  atomLevel: 0,
   gunRange: 20,
   countdownMin: 5,
   keys: 0,
@@ -22,14 +22,14 @@ let Profile = {
       damage: 3,
       img: "assets/images/textures/field.png",
       type: "special",
-      cooldown: 10
+      cooldown: 350
 	}, {
       // Static Skill, Skill 2
       name: "instantKill",
       damage: 0.8, // scaling down targets to 80%
       img: "assets/images/textures/gun.png",
       type: "static",
-      cooldown: 10
+      cooldown: 390
 	},
     {
       // Dynamic Skill, Skill 3
@@ -37,7 +37,7 @@ let Profile = {
       damage: 0.8, // scaling down targets to 80%
       img: "assets/images/coin.png",
       type: "dynamic",
-      cooldown: 10
+      cooldown: 400
 	}],
   Heroes: [
     {

@@ -383,7 +383,12 @@ class Hero {
 
         droppedCoins[b].position.y = 2
         Profile.coins = Profile.coins + droppedCoins[b].val
-
+        
+        
+        var cp = `<img src="assets/images/coin.png" class="coinsPop"/>`
+     
+        $("body").append(cp)
+       
         // dlete coins from array and scene
 
 
@@ -1403,32 +1408,32 @@ class BabyZombies {
     if (zzFront > zFront && zBack > zzBack && xxFront > xFront && xBack > xxBack) {
       //hero.hurt(self.attack)
 
-      hero.hurt(.001, .03)
+      hero.hurt(.001, .009)
     }
     //Phase 1 hurt
     else if (zzFront >= zFront && zBack >= zzBack && xFront > xxBack && xxBack > xBack) {
       //	hero.hurt(self.attack)
 
-      hero.hurt(.001, .03)
+      hero.hurt(.001, .009)
     }
     // Phase 3 hurt
     else if (zzFront >= zFront && zBack >= zzBack && xxFront > xBack && xFront > xxFront) {
       //	hero.hurt(self.attack)
 
-      hero.hurt(.001, .03)
+      hero.hurt(.001, .009)
     }
     // Phase 2 hurt
     else if (xBack >= xxBack && xxFront >= xFront && zFront > zzBack && zzBack > zBack) {
       //hero.hurt(self.attack)
 
-      hero.hurt(.001, .03)
+      hero.hurt(.001, .009)
 
     }
     // Phase 4 hurt
     else if (xBack >= xxBack && xxFront >= xFront & zzFront > zBack && zFront > zzFront) {
       //hero.hurt(self.attack)
 
-      hero.hurt(.001, .03)
+      hero.hurt(.001, .0)
     }
 
 
