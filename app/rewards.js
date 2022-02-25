@@ -25,7 +25,7 @@ var rewards = {
     for (var ii = 0; ii < 5; ii++) {
       var left = 50 + Math.random() * (20 - (-20)) + (-20);
       var top = 50 + Math.random() * (20 - (-20)) + (-20);
-      var cp = `<img src="assets/images/coin.png" style="top: ${top}vh; left: ${left}vw" class="coinsPop"/>`
+      var cp = `<img src="assets/images/coin.png" style="top: ${top}vh; left: ${left}vw" class="coinsPopR"/>`
 
       $("body").append(cp)
     }
@@ -47,7 +47,7 @@ var rewards = {
     for (var ii = 0; ii < 10; ii++) {
       var left = 50 + Math.random() * (20 - (-20)) + (-20);
       var top = 50 + Math.random() * (20 - (-20)) + (-20);
-      var cp = `<img src="assets/images/coin.png" style="top: ${top}vh; left: ${left}vw" class="coinsPop"/>`
+      var cp = `<img src="assets/images/coin.png" style="top: ${top}vh; left: ${left}vw" class="coinsPopR"/>`
 
       $("body").append(cp)
     }

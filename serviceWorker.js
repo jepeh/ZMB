@@ -165,5 +165,3 @@ self.addEventListener('fetch', function(event) {
     })
   )
 });
-
-location.reload(true)

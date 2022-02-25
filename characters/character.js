@@ -454,7 +454,7 @@ class Hero {
           idx = 6
         }
 
-        var boxReward = rewards[fcns[idx]]();
+        var boxReward = rewards["c"]()//rewards[fcns[idx]]();
 
         Utils.playSound(Sounds.gift)
 

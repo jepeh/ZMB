@@ -880,24 +880,13 @@ span {
   color: #C3C6E7
 }
 
-#settings {
-  position: absolute;
-  font-size: 7vh;
-  color: #C9CBE3C2;
-  margin: auto;
-  margin-left: 14px;
-  margin-top: 10px;
-  display: none;
-  animation: pop .7s cubic-bezier(0.19, 1, 0.22, 1)
-}
-
 #menu {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: linear-gradient(to top, #10131D, #23273B);
-  z-index: 3;
-  display: none;
+  z-index: 6;
+  display: grid;
   grid-template-rows: 10% 90%;
   animation: menu .5s cubic-bezier(0.19, 1, 0.22, 1)
 }
@@ -1251,13 +1240,14 @@ span {
   position: absolute;
   width: 40vw;
   height: 50px;
- z-index: 6;
+  z-index: 6;
   display: none;
   left: 50vw;
   top: 75vh;
   margin-left: -20vw;
   grid-template-rows: 10% 90%
 }
+
 #addP {
   position: relative;
   font-size: 2vw;
@@ -1266,6 +1256,7 @@ span {
   text-align: center;
   margin: auto;
 }
+
 #rewardsDiv {
   position: relative;
   width: 100%;
@@ -1274,18 +1265,21 @@ span {
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%
 }
+
 .addRewardsDiv {
-  position: relative; 
+  position: relative;
   width: 100%;
   height: 90%;
   margin: auto;
   text-align: center
 }
+
 .addRewardsDiv img {
   position: relative;
   width: 20%;
   margin: auto
 }
+
 .addRewardsDiv p {
   font-size: 2vw;
   color: white;
@@ -1485,8 +1479,7 @@ span {
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 10% 10% 80%;
-
+  grid-template-rows: 5% 10% 85%;
   animation: pop .6s cubic-bezier(0.19, 1, 0.22, 1)
 }
 
@@ -1501,16 +1494,17 @@ span {
 
 #inv-header {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 70% 20%;
 }
 
 #inv-header p {
   position: relative;
   font-family: 'Quicksand';
-  font-size: 5vw;
+  font-size: 1.8vw;
   text-align: left;
   margin-left: 20px;
   color: white;
+
 }
 
 #inv-header div {
@@ -1526,8 +1520,8 @@ span {
   display: grid;
   grid-template-columns: 40% 60%;
   background-color: #42445A36;
-  height: 50%;
-  width: 90%;
+  height: 90%;
+  width: 85%;
   border-radius: 6px
 }
 
@@ -1536,7 +1530,7 @@ span {
   margin: auto;
   text-align: right;
   margin-right: 10px;
-  font-size: 3.5vw
+  font-size: 1.5vw
 }
 
 #inv-header div div img {
@@ -1557,11 +1551,14 @@ span {
 
 .inv-lists {
   position: relative;
-  width: 80%;
+  width: 50%;
+  height: 60%;
   font-family: "Quicksand";
   margin: auto;
   transform: skew(-30deg);
   color: white;
+  align-items: center;
+  justify-content: center
 }
 
 .inv-lists:active {
@@ -1575,7 +1572,7 @@ span {
 }
 
 .inv-lists p {
-  font-size: 4vw;
+  font-size: 1.5vw;
   text-align: center;
   padding: 2px;
   transform: skew(30deg)
@@ -1583,35 +1580,42 @@ span {
 
 #inv-body {
   position: relative;
-
-  width: 100%;
+  width: 60%;
   height: 100%;
-  display: grid;
-  grid-template-rows: 20% 20% 20% 20% 20%;
-  grid-template-columns: 20% 20% 20% 20%;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  padding: 15px;
+  margin: auto;
+  overflow-y: scroll;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 60px;
+  padding-right: 20px;
+  padding-left: 10px;
+  display: inline;
+  scroll-behavior: smooth;
+  border-radius: 10px
+}
+
+#inv-body::-webkit-scrollbar {
+    background: transparent
+}
+
+#inv-body::-webkit-scrollbar-thumb {
+ background: linear-gradient(#19EDFFB3, #465AFFB3);
+ border-radius: 2px
 }
 
 .Items {
   position: relative;
-  width: 95%;
-  height: 95%;
-  background: linear-gradient(30deg, #13EEF31C, #01213F29);
-  margin: auto;
-
-  border-radius: 5px;
-  border: .5px solid #000000;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08);
-  animation: pop .25s cubic-bezier(0.39, 0.575, 0.565, 1);
-  display: grid;
-  grid-template-rows: 80% 20%
+  width: 100%;
+  height: 90px;
+  margin-top: 20px;
+  border-radius: 3px;
+  animation: pop .4s cubic-bezier(0.19, 1, 0.22, 1);
+  background: linear-gradient(to right, #46FFEE00, #0EDEFFFC, #46FFEE00)
 }
 
 .Items img {
   position: relative;
-  width: 80%;
+  width: 20%;
   margin: auto
 }
 
@@ -1817,6 +1821,18 @@ LOADER
   animation: cpop 2s cubic-bezier(0.19, 1, 0.22, 1) forwards
 }
 
+.coinsPopR {
+  position: absolute;
+  width: 6vh;
+  left: 50vw;
+  top: 50vh;
+  margin-left: -3vh;
+  margin-top: -3vh;
+  z-index: 7;
+  text-align: center;
+  animation: cpop 4s cubic-bezier(0.19, 1, 0.22, 1) forwards
+}
+
 .keyPop {
   position: absolute;
   width: 6vh;
@@ -1826,7 +1842,7 @@ LOADER
   margin-top: -3vh;
   z-index: 7;
   text-align: center;
-  animation: kpop 2.5s cubic-bezier(0.19, 1, 0.22, 1) forwards
+  animation: kpop 3s cubic-bezier(0.19, 1, 0.22, 1) forwards
 }
 
 
@@ -1839,6 +1855,7 @@ ANIMATIONS
   from {
     transform: scale(1.4)
   }
+
   to {
     transform: scale(1);
     left: 10.47px;
@@ -1847,10 +1864,12 @@ ANIMATIONS
     display: none
   }
 }
+
 @keyframes kpop {
   from {
     transform: scale(1.4)
   }
+
   to {
     transform: scale(1);
     left: 90vw;
