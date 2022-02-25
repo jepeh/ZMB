@@ -33,6 +33,8 @@ $("#sound").on('click', function() {
 $(".navs").on("click", e => {
   var id = e.currentTarget.attributes.id.value
 
+  sounds.mainMusic.volume = .05
+
   switch (id) {
     case "shop":
       // shop()
@@ -100,6 +102,7 @@ function inventory() {
 
 $("#menu-close").on('click', function() {
 
+  sounds.mainMusic.volume = .3
   if ($("#menu-close").attr("status") === "busy") {
 
     var parent = document.getElementById("menu-container")
@@ -129,7 +132,7 @@ window.selectINV = function(e) {
   for (var i = 0; i < elem.length; i++) {
     if (elem[i].id === e.id) {
 
-      elem[i].style.background = "linear-gradient(to right, #0EDEFFFC, transparent)"
+      elem[i].style.background = "linear-gradient(to right, #425A5A00, #0FBAD599, #425A5A00)"
 
 
       // reload inventory
@@ -142,7 +145,7 @@ window.selectINV = function(e) {
 
         let div = `<div class="Items" usable="true" id="item${o}" onClick="handlePreview(this)">
 		        <div style="border-top: 1px solid ${color};
-  border-bottom: 3.5px solid ${color}; box-shadow: 0px 0px 10px 2px #0000007A, -1px -0px 15px 2px ${color} inset;">
+  border-bottom: 3.5px solid ${color}; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.4), -1px -0px 15px 2px ${color} inset;">
 		          <img src="assets/images/coin.png"/>
 		        </div>
 		      <div style="background: linear-gradient(to right, ${color}, transparent 85%); box-shadow: 0px 0px 5px 1px ${color}">

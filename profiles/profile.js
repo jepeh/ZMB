@@ -136,7 +136,7 @@ let Profile = {
 	},
     {
       name: "jellyfishBullet",
-      color: "#FFE400",
+      color: "#7605FF",
       description: "",
       stats: {
         damage: "+40%",
