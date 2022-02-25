@@ -91,6 +91,7 @@ let Profile = {
   bullets: [
     {
       name: "normalBullet",
+      color: "#0EDEFFFC",
       description: "",
       stats: {
         damage: "+10%",
@@ -99,6 +100,7 @@ let Profile = {
 	},
     {
       name: "laserBullet",
+      color: "blue",
       description: "",
       stats: {
         damage: "+25%",
@@ -107,6 +109,7 @@ let Profile = {
 	},
     {
       name: "bladeBullet",
+      color: "#BAFCFF",
       description: "",
       stats: {
         damage: "+20%",
@@ -115,6 +118,7 @@ let Profile = {
 	},
     {
       name: "laserlightBullet",
+      color: "#00FF7F",
       description: "",
       stats: {
         damage: "+30%",
@@ -123,6 +127,7 @@ let Profile = {
 	},
     {
       name: "phoenixfireBullet",
+      color: "#FF6E00",
       description: "",
       stats: {
         damage: "+35%",
@@ -131,6 +136,7 @@ let Profile = {
 	},
     {
       name: "jellyfishBullet",
+      color: "#FFE400",
       description: "",
       stats: {
         damage: "+40%",
@@ -139,6 +145,7 @@ let Profile = {
 	},
     {
       name: "lasertubeBullet",
+      color: "#E1B9FF",
       description: "",
       stats: {
         damage: "+45%",
@@ -147,6 +154,7 @@ let Profile = {
 	},
     {
       name: "pixelBullet",
+      color: "#FE5EFF",
       description: "",
       stats: {
         damage: "+50%",
@@ -155,16 +163,13 @@ let Profile = {
 	},
     {
       name: "ninjabladeBullet",
+      color: "#FF0000",
       description: "",
       stats: {
         damage: "+55%",
         bulletSpeed: 150
       }
-	},
-
-    {
-
-	}],
+	},],
   skins: []
 
 }

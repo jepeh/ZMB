@@ -30,51 +30,38 @@ $("#sound").on('click', function() {
   playSound(sounds.toggle)
 })
 
-$(".navs").on("click", e =>{
+$(".navs").on("click", e => {
   var id = e.currentTarget.attributes.id.value
-  
-  switch(id) {
+
+  switch (id) {
     case "shop":
-     // shop()
-   
+      // shop()
+
       break;
     case "inventory":
       inventory()
-     
+
       break;
     case "settings":
       //settings()
-     
+
       break;
     case "help":
-   // help()
-   
+      // help()
+
       break;
   }
-  
+
   return;
 })
 
 function inventory() {
 
-    $("#menu").css("display", "grid")
-    
+  $("#menu").css("display", "grid")
+
   playSound(sounds.setting)
 
   var inv = `<div id="inventory-wrapper">
-				<div class="inventory" id="inv-header">
-					<p id='invtitle'>INVENTORY</p>
-					<div>
-						<div>
-							<p class="e-TXT">0</p>
-							<img id="energy-img" src="assets/images/energy.png" />
-						</div>
-						<div>
-							<p class="c-TXT">0</p>
-							<img id="coin-img" src="assets/images/coin.png" />
-						</div>
-					</div>
-				</div>
 				<div class="inventory" id="inv-list">
 					<div class="inv-lists" usable="true" id="items" onClick="selectINV(this)">
 						<p>ITEMS</p>
@@ -96,15 +83,12 @@ function inventory() {
 
   $("#menu-container").append(inv)
 
-  for (var i = 0; i < Profile.items.length; i++) {
-    let div = `<div class="Items">
-		<img/>
-		<p></p>
-		</div>`
-    $("#inv-body").append(div)
+  for (var i=0; i<Profile.items.length; i++){
+   var items = ``;
+   
+    $("#inv-body").append(items)
   }
-  
-  
+
   $(".e-TXT").text(Profile.energy)
   $(".c-TXT").text(Profile.coins)
 
@@ -141,20 +125,40 @@ SELECT INVENTORY
 window.selectINV = function(e) {
 
   var elem = document.getElementsByClassName("inv-lists")
+
   for (var i = 0; i < elem.length; i++) {
     if (elem[i].id === e.id) {
 
-      elem[i].style.background = "linear-gradient(to left, #06092754, #0FBAD599)"
-      elem[i].style.borderRadius = "5px"
+      elem[i].style.background = "linear-gradient(to right, #0EDEFFFC, transparent)"
+
 
       // reload inventory
       $("#inv-body").html("")
 
       for (var o = 0; o < Profile[elem[i].id].length; o++) {
+
+        var color = Profile[elem[i].id][o].color
+        var name = Profile[elem[i].id][o].name
+
         let div = `<div class="Items" usable="true" id="item${o}" onClick="handlePreview(this)">
+		        <div style="border-top: 1px solid ${color};
+  border-bottom: 3.5px solid ${color}; box-shadow: 0px 0px 10px 2px #0000007A, -1px -0px 15px 2px ${color} inset;">
+		          <img src="assets/images/coin.png"/>
+		        </div>
+		      <div style="background: linear-gradient(to right, ${color}, transparent 85%); box-shadow: 0px 0px 5px 1px ${color}">
+		        <p>${name}</p>
+		          <div>
+		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul1"></div>
+		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul2"></div>
+		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul3"></div>
+		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul4"></div>
+		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul5"></div>
+		          </div>
+		        </div>
 			</div>`
         $("#inv-body").append(div)
       }
+      
       playSound(sounds.selectINV)
 
     } else {
