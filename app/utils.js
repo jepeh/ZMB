@@ -32,7 +32,6 @@ $("#sound").on('click', function() {
 
 $(".navs").on("click", e => {
   var id = e.currentTarget.attributes.id.value
-
   sounds.mainMusic.volume = .05
 
   switch (id) {
@@ -85,14 +84,11 @@ function inventory() {
 
   $("#menu-container").append(inv)
 
-  for (var i=0; i<Profile.items.length; i++){
-   var items = ``;
-   
+  for (var i = 0; i < Profile.items.length; i++) {
+    var items = ``;
+
     $("#inv-body").append(items)
   }
-
-  $(".e-TXT").text(Profile.energy)
-  $(".c-TXT").text(Profile.coins)
 
 }
 
@@ -103,20 +99,9 @@ function inventory() {
 $("#menu-close").on('click', function() {
 
   sounds.mainMusic.volume = .3
-  if ($("#menu-close").attr("status") === "busy") {
+  $("#menu").css('display', "none")
+  $("#menu-container").html("")
 
-    var parent = document.getElementById("menu-container")
-    parent.removeChild(parent.children[0])
-    $("#menu-close").attr("status", "notbusy")
-    $("#settings-wrapper")
-      .css({
-        left: "0",
-        display: "grid"
-      })
-    $("#inv-body").html("")
-  } else {
-    $("#menu").css('display', "none")
-  }
   playSound(sounds.toggle)
 
 })
@@ -131,6 +116,7 @@ window.selectINV = function(e) {
 
   for (var i = 0; i < elem.length; i++) {
     if (elem[i].id === e.id) {
+      var itemType = elem[i].id
 
       elem[i].style.background = "linear-gradient(to right, #425A5A00, #0FBAD599, #425A5A00)"
 
@@ -140,17 +126,23 @@ window.selectINV = function(e) {
 
       for (var o = 0; o < Profile[elem[i].id].length; o++) {
 
-        var color = Profile[elem[i].id][o].color
-        var name = Profile[elem[i].id][o].name
+        var bulletInfo = Profile[elem[i].id][o]
+        var color = bulletInfo.color
+        var name = bulletInfo.name
+        var bulletType = bulletInfo.typeColor
+        var img = bulletInfo.img
+        var equip = bulletInfo.name === Profile.bulletType ? "Equipped" : "Equip"
 
-        let div = `<div class="Items" usable="true" id="item${o}" onClick="handlePreview(this)">
+
+        let div = `<div class="Items" id="${name}" onClick="handlePreview(this, ${itemType})">
 		        <div style="border-top: 1px solid ${color};
   border-bottom: 3.5px solid ${color}; box-shadow: 0px 0px 10px 2px rgba(0,0,0,.4), -1px -0px 15px 2px ${color} inset;">
-		          <img src="assets/images/coin.png"/>
+		          <img id="itemimg${o}" src="${img}"/>
 		        </div>
 		      <div style="background: linear-gradient(to right, ${color}, transparent 85%); box-shadow: 0px 0px 5px 1px ${color}">
 		        <p>${name}</p>
 		          <div>
+		          <div style="border: 1px solid ${bulletType}"> <p>${equip}</p></div>
 		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul1"></div>
 		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul2"></div>
 		          <div class="buls" style="box-shadow: 0px 0px 10px 1px ${color}" id="bul3"></div>
@@ -161,7 +153,7 @@ window.selectINV = function(e) {
 			</div>`
         $("#inv-body").append(div)
       }
-      
+
       playSound(sounds.selectINV)
 
     } else {
@@ -171,29 +163,85 @@ window.selectINV = function(e) {
 }
 
 
-window.handlePreview = function(e) {
-  var a = e.id.split("")
-  var b = a[a.length - 1]
+window.handlePreview = function(e, etype) {
 
-  var img = $(`#itemimg${b}`).attr("src")
-  var title = document.getElementById(`itemtitle${b}`).innerText
-  var description;
 
-  $("#cover").css("display", "grid")
-  let d = `<div id="itempreview" onClick="closePreview()">
-	<img src="${img}"/>
-	<p>${title}</p>
-	<div>${description}</div>
-	</div>`
-  $("body").append(d)
+  var bullet = Profile.bullets.filter(r => {
+    return r.name === e.id
+  })[0]
 
-  var usable = $(`#${e.id}`).attr("usable")
+  var type = etype.id
 
-  if (usable) $("#invuse").css("display", "grid")
+
+  switch (type) {
+    case "bullets":
+      bulletsPreview(bullet)
+      break;
+    case "items":
+      itemsPreview()
+      break;
+    case "skins":
+      skinsPreview()
+      break;
+    case "skills":
+      skillsPreview()
+      break;
+  }
+  return;
+}
+
+function bulletsPreview(bullet) {
+
+  $("#cover").css("display", "block")
+
+  var itemPrev = `<div class="itempreview" id="bulletItemPreview">
+    <div class="itp" id="bulletItemInfo">
+    <img src="${bullet.img}"/>
+    <div>
+    <p id="bulletName"> ${bullet.name}</p>
+    <p></p>
+   <p></p>   
+   <p></p>   
+   <p></p>       
+    </div>
+    </div>
+    <div class="itp" id="useOptions">
+      <div class="options"><p>use</p></div>
+      <div class="options" id="cancelBullet"><p>cancel</p></div>
+    </div>
+  </div>`
+
+  $("body").append(itemPrev)
+
+
+
+  $(".options").on("click", e => {
+
+    if (e.currentTarget.id === "cancelBullet") {
+      $(".itempreview").remove()
+      $("#cover").css("display", "none")
+    }
+    // Use Bullet Type
+    else {
+      Profile.bulletType = bullet.name
+      selectINV(document.getElementById("bullets"))
+      $("#cover").css("display", "none")
+      $(".itempreview").remove()
+
+      // Update hero's bullet
+      window.hero.bombDamage = Profile.bombDamage + Profile.bombDamage * Profile.bulletDamage(Profile.bulletType)
+      window.hero.bulletSpeed = Profile.bullets.filter(e => { return e.name === Profile.bulletType })[0].stats.bulletSpeed
+      window.hero.mapBullet = window.TextureLoader.load(`assets/images/textures/${Profile.bulletType}.png`)
+
+    }
+  })
+
+
+
 }
 
 window.closePreview = function() {
-  $("#itempreview").remove()
+  $(".itempreview").remove()
   $("#cover, #invuse").css("display", "none")
 }
 

@@ -1620,12 +1620,36 @@ span {
   border: none;
 }
 
+.Items div:nth-child(2) div:nth-child(1) {
+  position: absolute;
+  background-color: none;
+  width: 60px;
+  height: 20px;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  transform: skew(10deg);
+  top: 50%;
+  margin-top: -35px;
+  left: 30%;
+ 
+  display: grid;
+  grid-template-columns: 100%
+}
+.Items div:nth-child(2) div:nth-child(1) p {
+  position: relative;
+  margin: auto;
+  color: white;
+  font-family: "Quicksand";
+  font-weight: 700;
+  font-size: 1vw
+}
 .Items div:nth-child(2) div .buls {
   position: absolute;
   width: 6px;
   height: 6px;
-  top: 0;
-  left: 10;
+  top: 10%;
+  left: 10%;
   background-color: white;
   transform: skew(30deg)
 }
@@ -1652,76 +1676,86 @@ span {
   top: 70%
 }
 
-
-#itempreview {
+#bulletItemPreview {
   position: absolute;
-  width: 70%;
-  height: 50%;
-  background: linear-gradient(30deg, #26294A8A, #0359698A);
+  width: 0vw;
+  height: 40vh;
+  background-color: none;
   margin: auto;
-  border-radius: 8px;
-  border: .5px solid #000000;
-  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .08);
-  animation: pop .25s cubic-bezier(0.39, 0.575, 0.565, 1);
-  left: 50%;
-  margin-left: -35%;
-  top: 20%;
-  grid-template-rows: 50% 10% 40%;
+  transform: skew(-20deg);
+  border-right: .1px solid #0EDEFFFC;
+  border-left: 6px solid #0EDEFFFC;
+  background: linear-gradient(to right, #00F9FF52, #00F9FF00,#00F9FF00, #00F9FF00, #00F9FF00, #00F9FF52);
+  left: 50vw;
+  top: 50vh;
+  margin-left: -0vw;
+  margin-top: -20vh;
   z-index: 6;
   display: grid;
-  border-top: .8px #C0FBFF7D solid;
-  border-right: .8px #C0FBFF7D solid;
-  border-left: .8px #012628AB solid;
-  border-bottom: .8px #012628AB solid;
+  animation: item .5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  grid-template-columns: 70% 30%
 }
 
-#itempreview img {
-  position: relative;
-  width: 60%;
-  height: auto;
-  margin: auto;
-}
-
-#itempreview p {
-  position: relative;
-  text-align: center;
-  font-family: "Quicksand";
-  font-size: 3.5vh;
-  color: white;
-
-}
-
-#itempreview div {
+.itp {
   position: relative;
   width: 90%;
   height: 90%;
   margin: auto;
-  text-align: center;
-  color: white;
-  font-size: 2vh;
-  font-family: "Quicksand"
+  
+  display: grid;
 }
 
-#invuse {
-  position: absolute;
-  background: linear-gradient(to right, #06092754, #0FBAD599);
-  width: 100px;
-  height: 30px;
+#bulletItemInfo {
+  grid-template-columns: 30% 70%
+}
+#bulletItemInfo img {
+  position: relative;
+  width: 95%; 
+  transform: skew(20deg);
+  margin: auto
+}
+#bulletItemInfo div {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 25% 25% 25% 25% 25%
+}
+#bulletItemInfo div p {
+  position: relative;
+  margin: auto;
   color: white;
-  left: 50%;
-  padding-top: 5px;
-  border-radius: 3px;
-  margin-left: -50px;
+  font-size: 2vw;
+  width: 80%;
+  font-family: 'Quicksand';
+  text-align: left;
+}
+#bulletName {
+  width: 90%;
   text-align: center;
-  top: 80%;
-  transform: skew(-20deg);
-  font-size: 5vw;
-  display: none;
+  background: linear-gradient(to right, #52EEFF00, #52EEFF8C, #52EEFF00)
+}
+#cancelBullet {
+  background: #FF5252BA;
+  color: white
+}
+.options{
+  position: relative;
+  width: 90%;
+  height: 40%;
+  margin: auto;
+  display: grid;
+  background-color: #D5FBFFE0;
+}
+.options p{
+  position: relative;
+  margin: auto;
+  font-size: 1.5vw;
   font-family: "Quicksand";
-  z-index: 6;
-  animation: pop .2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  color: black;
+  text-align: center
 }
-
 
 /*
 DISPLAY DIVS
@@ -1812,6 +1846,17 @@ LOADER
   transform: translateZ(-90px);
   filter: blur(10px);
   box-shadow: 0 0 320px rgba(0, 255, 0, .2)
+}
+
+@keyframes item {
+  from {
+    width: 0px;
+    margin-left: 0px;
+  }
+  to {
+    width: 50vw;
+    margin-left: -25vw
+  }
 }
 
 @keyframes anim {

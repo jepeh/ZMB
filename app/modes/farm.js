@@ -747,8 +747,8 @@ var FARM = {
       window.hero.bullets = Profile.bombs
       Profile.atomLevel = 0
 
-       console.log("reloading...")
-       window.location.reload()
+      alert("reloading...")
+      window.location.reload(true)
 
     })
 

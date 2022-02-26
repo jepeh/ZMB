@@ -8,7 +8,7 @@ let Profile = {
   rank: "noob",
   maxHP: 100,
   bulletType: "bladeBullet",
-  bombDamage: 20,
+  bombDamage: 500,
   energy: 10,
   mapRadius: 70,
   atomBombRadius: 20,
@@ -93,6 +93,9 @@ let Profile = {
       name: "normalBullet",
       color: "#0EDEFFFC",
       description: "",
+      type: "classic",
+      typeColor: "#21FFBB",
+      img: "assets/images/coin.png",
       stats: {
         damage: "+10%",
         bulletSpeed: 250
@@ -102,6 +105,8 @@ let Profile = {
       name: "laserBullet",
       color: "blue",
       description: "",
+      type: "classic",
+      typeColor: "#21FFBB",
       stats: {
         damage: "+25%",
         bulletSpeed: 220
@@ -110,6 +115,8 @@ let Profile = {
     {
       name: "bladeBullet",
       color: "#BAFCFF",
+      type: "classic",
+      typeColor: "#21FFBB",
       description: "",
       stats: {
         damage: "+20%",
@@ -119,6 +126,8 @@ let Profile = {
     {
       name: "laserlightBullet",
       color: "#00FF7F",
+      type: "modern",
+      typeColor: "#21F2FF",
       description: "",
       stats: {
         damage: "+30%",
@@ -128,6 +137,8 @@ let Profile = {
     {
       name: "phoenixfireBullet",
       color: "#FF6E00",
+      type: "modern",
+      typeColor: "#21F2FF",
       description: "",
       stats: {
         damage: "+35%",
@@ -137,6 +148,8 @@ let Profile = {
     {
       name: "jellyfishBullet",
       color: "#7605FF",
+      type: "modern",
+      typeColor: "#21F2FF",
       description: "",
       stats: {
         damage: "+40%",
@@ -147,6 +160,8 @@ let Profile = {
       name: "lasertubeBullet",
       color: "#E1B9FF",
       description: "",
+      type: "ancient",
+      typeColor: "#FF1414",
       stats: {
         damage: "+45%",
         bulletSpeed: 170
@@ -156,6 +171,8 @@ let Profile = {
       name: "pixelBullet",
       color: "#FE5EFF",
       description: "",
+      type: "ancient",
+      typeColor: "#FF1414",
       stats: {
         damage: "+50%",
         bulletSpeed: 160
@@ -165,6 +182,8 @@ let Profile = {
       name: "ninjabladeBullet",
       color: "#FF0000",
       description: "",
+      type: "ancient",
+      typeColor: "#FF1414",
       stats: {
         damage: "+55%",
         bulletSpeed: 150
