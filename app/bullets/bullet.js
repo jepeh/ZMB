@@ -344,7 +344,6 @@ var Bullets = {
     var head = new Three.Mesh(new Three.BoxGeometry(2, 2, 2), new Three.MeshNormalMaterial())
     head.position.set(0, 0, -5)
 
-
     g.add(tail, head)
     g.position.copy(hero.mesh.position)
 
@@ -361,9 +360,9 @@ var Bullets = {
         var tuts = new Three.Mesh(new Three.BoxBufferGeometry(size, size, size), new Three.MeshNormalMaterial())
 
         var position = {
-          x: g.position.x + Math.random() * (2 - 1) + 1,
-          y: g.position.y + Math.random() * (2 - 1) + 1,
-          z: g.position.z + Math.random() * (2 - 1) + 1
+          x: g.position.x + Math.random() * (2 - (-2)) + (-2),
+          y: g.position.y + Math.random() * (2 - (-2)) + (-2),
+          z: g.position.z + Math.random() * (2 - (-2)) + (-2)
         }
 
         //	tuts.scale.set(0, 0, 0)

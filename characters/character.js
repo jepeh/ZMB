@@ -353,8 +353,11 @@ class Hero {
       if (droppedBomb[b].position.x > 100 || droppedBomb[b].position.x < -100 || droppedBomb[b].position.z > 100 || droppedBomb[b].position.z < -100) {
 
         for (var bb = 0; bb < droppedBomb[b].children.length; bb++) {
-          droppedBomb[b].children[bb].geometry.dispose()
-          droppedBomb[b].children[bb].material.dispose()
+
+          if (droppedBomb[b].children[bb].type === "Mesh" || droppedBomb[b].children[bb].type === "mesh") {
+            droppedBomb[b].children[bb].geometry.dispose()
+            droppedBomb[b].children[bb].material.dispose()
+          }
         }
 
         this.scene.remove(droppedBomb[b])
@@ -454,7 +457,7 @@ class Hero {
           idx = 6
         }
 
-        var boxReward = rewards["c"]()//rewards[fcns[idx]]();
+        var boxReward = rewards["c"]() //rewards[fcns[idx]]();
 
         Utils.playSound(Sounds.gift)
 
@@ -764,8 +767,10 @@ var Enemy = function(position, color, size, x, z, scene, c, r, name, physics) {
         bulletSprite(pos)
 
         for (var bb = 0; bb < droppedBomb[b].children.length; bb++) {
-          droppedBomb[b].children[bb].geometry.dispose()
-          droppedBomb[b].children[bb].material.dispose()
+          if (droppedBomb[b].children[bb].type === "Mesh" || droppedBomb[b].children[bb].type === "mesh") {
+            droppedBomb[b].children[bb].geometry.dispose()
+            droppedBomb[b].children[bb].material.dispose()
+          }
         }
 
         self.scene.remove(droppedBomb[b])
@@ -1090,8 +1095,11 @@ var EnemyBoss = function() {
 
 
         for (var bb = 0; bb < droppedBomb[b].children.length; bb++) {
-          droppedBomb[b].children[bb].geometry.dispose()
-          droppedBomb[b].children[bb].material.dispose()
+
+          if (droppedBomb[b].children[bb].type === "Mesh" || droppedBomb[b].children[bb].type === "mesh") {
+            droppedBomb[b].children[bb].geometry.dispose()
+            droppedBomb[b].children[bb].material.dispose()
+          }
         }
 
         SCENE.remove(droppedBomb[b])
@@ -1279,7 +1287,7 @@ var EnemyBoss = function() {
 
               if (window.inGame) {
                 self.summonZombies()
-              } 
+              }
 
               TweenMax.to(plane.scale, 1, {
                 x: 0,
@@ -1451,8 +1459,10 @@ class BabyZombies {
         bulletSprite(droppedBomb[b].position)
 
         for (var bb = 0; bb < droppedBomb[b].children.length; bb++) {
-          droppedBomb[b].children[bb].geometry.dispose()
-          droppedBomb[b].children[bb].material.dispose()
+          if (droppedBomb[b].children[bb].type === "Mesh" || droppedBomb[b].children[bb].type === "mesh") {
+            droppedBomb[b].children[bb].geometry.dispose()
+            droppedBomb[b].children[bb].material.dispose()
+          }
         }
 
         window.SCENE.remove(droppedBomb[b])
@@ -1512,7 +1522,7 @@ class defaultHero extends Hero {
     this.animation()
     ObjectLoader.load("assets/characters/kiwi.obj", e => {
       for (var i = 0; i < e.children.length; i++) {
-        e.children[i].material = new Three.MeshToonMaterial({ color: e.children[i].name })
+        e.children[i].material = new Three.MeshPhongMaterial({ color: e.children[i].name })
       }
 
       this.mesh = e
