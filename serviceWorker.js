@@ -62,6 +62,7 @@ const ASSETS = [
 	"assets/audio/pixelBullet.mp3",
 	"assets/audio/selectInv.wav",
 	"assets/audio/toggle.wav",
+	"assets/audio/itemPreview.wav",
 	"assets/gltf/box.gltf",
 //	"https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap",
 	"assets/gltf/coin.gltf",

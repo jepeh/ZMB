@@ -31,7 +31,7 @@ var FARM = {
     $('.chart').data('easyPieChart').update(Profile.atomLevel)
 
     // light
-    
+
     Utils.stopSound(Sound.mainMusic)
     Utils.playMusic(Sound.FarmMode)
 
@@ -747,8 +747,10 @@ var FARM = {
       window.hero.bullets = Profile.bombs
       Profile.atomLevel = 0
 
+      overAnim = null
+
       alert("reloading...")
-      window.location.reload(true)
+      window.location.reload()
 
     })
 
@@ -942,7 +944,7 @@ var FARM = {
       for (var rw = 0; rw < window.addRewards.length; rw++) {
         switch (addRewards[rw].type) {
           case "coin":
-            rewardsArr[0].value += addRewards[rw].value 
+            rewardsArr[0].value += addRewards[rw].value
             break;
           case "key":
             rewardsArr[1].value += addRewards[rw].value
@@ -952,7 +954,7 @@ var FARM = {
             break;
         }
       }
-      
+
       rewardsArr[0].value += 100;
 
       // append rewards to banner
@@ -968,6 +970,15 @@ var FARM = {
       }, 800)
       return;
     })
+
+
+    $("#thanks").on('click', () => {
+      $("#cover, #ccnscvr, #confirm, #addRewards").css("display", "none")
+      alert("reloading..")
+      window.location.reload(true)
+    })
+
+
     return;
   },
   EnemyBoss: function() {

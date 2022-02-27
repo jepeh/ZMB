@@ -15,6 +15,8 @@ var die = new Audio("assets/audio/die.wav")
 die.volume = .5
 var gift = new Audio("assets/audio/gift.wav")
 
+var itemPreview = new Audio("assets/audio/itemPreview.wav")
+
 var FarmMode = new Audio("assets/audio/farmmode.mp3")
 FarmMode.volume = .34
 var mainMusic = new Audio("assets/audio/mainMusic.mp3")
@@ -35,4 +37,4 @@ var instantKill = new Audio("assets/audio/instantKill.wav")
 var farmModeReward = new Audio("assets/audio/farmModeReward.wav")
 
 
-export {EnemyBoss, farmModeReward, instantKill, pixelBulletGun, selectINV, laserLightGun, bladeGun, laserGun, mainMusic, FarmMode, gift, die, gameMode, gameWin, gameOver, normalGun, eat, setting, color, toggle, lightningStrike, energy, coin}
+export {itemPreview, EnemyBoss, farmModeReward, instantKill, pixelBulletGun, selectINV, laserLightGun, bladeGun, laserGun, mainMusic, FarmMode, gift, die, gameMode, gameWin, gameOver, normalGun, eat, setting, color, toggle, lightningStrike, energy, coin}

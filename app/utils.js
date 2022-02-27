@@ -5,15 +5,6 @@ import { GAME } from './script.js'
 import { FARM } from './modes/farm.js'
 import { TextGeometry } from "/src/TextGeometry.js"
 
-$("#thanks").on('click', () => {
-  $("#cover, #ccnscvr, #confirm, #addRewards").css("display", "none")
-  Profile.coins = Profile.coins + 100
-  $("#coin-txt").text(Profile.coins)
-  console.log("reloading..")
-  window.location.reload()
-
-})
-
 $("#music").on('click', function() {
   Sounds.music ? $("#music div").css({ transform: "translateX(-63%)", backgroundColor: "rgba(255,255,255,.7)" }) : $("#music div").css({ transform: "translateX(63%)", backgroundColor: "rgba(0,0,0,.7)" });
   !Sounds.music ? $("#music").css({ backgroundColor: "rgba(255,255,255,.8)" }) : $("#music").css({ backgroundColor: "rgba(0,0,0,.4)" })
@@ -172,6 +163,7 @@ window.handlePreview = function(e, etype) {
 
   var type = etype.id
 
+  playSound(sounds.itemPreview)
 
   switch (type) {
     case "bullets":

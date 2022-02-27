@@ -23,6 +23,7 @@ import Stats from '/src/Stats.js'
 window.ObjectLoader = new OBJLoader()
 window.MaterialLoader = new MTLLoader()
 
+
 //window dynamic variables
 window.keyPressed = ""
 window.droppedBomb = []
@@ -346,8 +347,6 @@ var Game = (function(w, func) {
     CLOCK.startTime = 0
     CLOCK.elapsedTime = 0
     CLOCK.start()
-
-
     CAMERA.layers.enable(0)
 
     /************ FUNCTIONS START************/
