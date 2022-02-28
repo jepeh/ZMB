@@ -49,19 +49,22 @@ var Bullets = {
 
       } else {
         //	for (var i = 0; i < 2; i++) {
-        var size = Math.random() * (2 - .5) + .5
+        var size = Math.random() * (5.5 - 2) + 2
         var tuts = new Three.Mesh(new Three.PlaneGeometry(size, size), new Three.MeshToonMaterial({
           transparent: true,
           side: 2,
           color: "white",
-          map: Map.jelly
+          map: Map.bladeTrail
         }))
+
         tuts.rotation.x = -Math.PI / 2
 
+        tuts.rotation.z = Math.random() * (Math.PI - .1) + .1
+
         var position = {
-          x: g.position.x + Math.random() * (2 - (-2)) + (-2),
+          x: g.position.x + Math.random() * (1 - (-1)) + (-1),
           y: g.position.y + Math.random() * (2 - (-1)) + (-1),
-          z: g.position.z + Math.random() * (2 - (-2)) + (-2)
+          z: g.position.z + Math.random() * (1 - (-1)) + (-1)
         }
 
         //	tuts.scale.set(0, 0, 0)
@@ -71,7 +74,7 @@ var Bullets = {
         //	tutsi.push(tuts)
         //	}
 
-        TweenMax.to(tuts.scale, 1, {
+        TweenMax.to(tuts.scale, 1.5, {
           x: .1,
           y: .1,
           z: .1,
@@ -84,7 +87,7 @@ var Bullets = {
         })
 
       }
-    }, 50)
+    }, 40)
 
 
     Utils.playSound(Sounds.bladeGun)
@@ -180,12 +183,14 @@ var Bullets = {
     return g;
   },
   phoenixFire: function() {
+
     var g = new Three.Group()
 
-    var b = new Three.Mesh(new Three.PlaneBufferGeometry(7, 7), new Three.MeshToonMaterial({
+    var b = new Three.Mesh(new Three.PlaneBufferGeometry(10, 10), new Three.MeshToonMaterial({
       transparent: true,
       map: hero.mapBullet,
-      side: 2
+      side: 2,
+      depthTest: false
     }))
 
     b.rotation.x = -Math.PI / 2
@@ -193,10 +198,11 @@ var Bullets = {
     b.receiveShadow = true
     g.add(b)
 
-    var bb = new Three.Mesh(new Three.PlaneBufferGeometry(7, 7), new Three.MeshToonMaterial({
+    var bb = new Three.Mesh(new Three.PlaneBufferGeometry(10, 10), new Three.MeshToonMaterial({
       transparent: true,
       map: hero.mapBullet,
-      side: 2
+      side: 2,
+      depthTest: false
     }))
     bb.castShadow = true
     bb.receiveShadow = true
@@ -212,6 +218,88 @@ var Bullets = {
       y: 1,
       z: 1
     })
+
+    var tut = setInterval(() => {
+      if (g.done) {
+        clearInterval(tut)
+
+      } else {
+
+
+        //	for (var i = 0; i < 2; i++) {
+        var size = Math.floor(Math.random() * (7.5 - 2) + 2)
+
+
+        var tuts = new Three.Mesh(new Three.PlaneGeometry(size, size), new Three.MeshToonMaterial({
+          transparent: true,
+          side: 2,
+          color: "white",
+          map: Map.phoenixTrail,
+          depthTest: false
+        }))
+
+        var tuts2 = new Three.Mesh(new Three.PlaneGeometry(size, size), new Three.MeshToonMaterial({
+          transparent: true,
+          side: 2,
+          color: "white",
+          map: Map.phoenixTrailFlower,
+          depthTest: false
+        }))
+
+        tuts.rotation.x = -Math.PI / 2
+        tuts2.rotation.x = -Math.PI / 2
+        tuts.rotation.z = Math.random() * (Math.PI - .1) + .1
+        tuts2.rotation.z = Math.random() * (Math.PI - .1) + .1
+
+
+        var position = {
+          x: g.position.x + Math.random() * (1 - (-1)) + (-1),
+          y: g.position.y + Math.random() * (2 - (-1)) + (-1),
+          z: g.position.z + Math.random() * (1 - (-1)) + (-1)
+        }
+        
+        var position2 = {
+          x: g.position.x + Math.random() * (1 - (-1)) + (-1),
+          y: g.position.y + Math.random() * (2 - (-1)) + (-1),
+          z: g.position.z + Math.random() * (1 - (-1)) + (-1)
+        }
+
+        //	tuts.scale.set(0, 0, 0)
+        tuts.position.copy(position)
+        tuts2.position.copy(position2)
+
+        SCENE.add(tuts, tuts2)
+        //	tutsi.push(tuts)
+        //	}
+
+        TweenMax.to(tuts.scale, 1, {
+          x: .1,
+          y: .1,
+          z: .1,
+          onComplete: () => {
+            tuts.material.dispose()
+            tuts.geometry.dispose()
+            SCENE.remove(tuts)
+            tuts = null
+          }
+        })
+
+        TweenMax.to(tuts2.scale, 1, {
+          x: .1,
+          y: .1,
+          z: .1,
+          onComplete: () => {
+            tuts2.material.dispose()
+            tuts2.geometry.dispose()
+            SCENE.remove(tuts2)
+            tuts2 = null
+          }
+        })
+
+
+
+      }
+    }, 70)
 
     Utils.playSound(Sounds.bladeGun)
 
@@ -795,7 +883,7 @@ function phoenixfire(pos) {
   var hit = new Three.Mesh(new Three.SphereGeometry(7), new Three.MeshToonMaterial({
     transparent: true,
     side: 2,
-
+    depthTest: false,
     map: Map.phoenixHit
   }))
 

@@ -130,7 +130,10 @@ const ASSETS = [
 	"assets/images/textures/rod.png",
 	"assets/images/textures/summonZombie.png",
 	"assets/images/textures/particleTexture.png",
-	"assets/images/textures/phoenixhit.png"
+	"assets/images/textures/phoenixhit.png",
+	"assets/images/textures/bladeTrail.png",
+	"assets/images/textures/phoenixTrail.png",
+	"assets/images/textures/phoenixTrail2.png"
 	];
 
 async function preCache() {
