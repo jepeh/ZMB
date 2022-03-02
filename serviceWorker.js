@@ -153,24 +153,17 @@ self.addEventListener("active", e => {
   console.log("activated")
 })
 
+async function getCache(e){
+  var res = caches.match(e.request)
+  if (res) {
+    console.log("found in cache")
+    return res
+  }
+  console.log("fetching from network")
+  return fetch(e.request)
+}
+
 self.addEventListener('fetch', function(event) {
   console.log("fetching for " + event.request.url)
-  event.respondWith((async()=>{
-    const cacheRes = await caches.match(event.request)
-    if( cacheRes) {
-      console.log("found in cache")
-      return cacheRes
-    }
-    
-    const fetchRes = await fetch(event.request)
-    if (fetchRes) {
-     console.log("fetch from network")
-     
-     const resToCache = fetchRes.clone()
-     const ch = await caches.open("ASSETS")
-     await ch.put(event.request, resToCache.clone())
-     
-      return fetchRes
-    }
-  }))
+  event.respondWith(getCache(event))
 });

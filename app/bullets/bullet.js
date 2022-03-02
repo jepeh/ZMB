@@ -25,7 +25,7 @@ var Bullets = {
   blade: function() {
     var g = new Three.Group()
 
-    var b = new Three.Mesh(new Three.PlaneBufferGeometry(7, 7), new Three.MeshToonMaterial({
+    var b = new Three.Mesh(new Three.PlaneBufferGeometry(10, 10), new Three.MeshToonMaterial({
       transparent: true,
       map: hero.mapBullet
     }))
@@ -49,7 +49,7 @@ var Bullets = {
 
       } else {
         //	for (var i = 0; i < 2; i++) {
-        var size = Math.random() * (5.5 - 2) + 2
+        var size = Math.random() * (7 - 2) + 2
         var tuts = new Three.Mesh(new Three.PlaneGeometry(size, size), new Three.MeshToonMaterial({
           transparent: true,
           side: 2,
