@@ -144,7 +144,7 @@ async function preCache() {
 
 self.addEventListener("install", (installEvent) => {
   console.log("installed, caching files")
-  installEvent.waitUntil(preCache())
+//  installEvent.waitUntil(preCache())
   self.skipWaiting()
 });
 
@@ -163,6 +163,6 @@ async function getCache(e){
 }
 
 self.addEventListener('fetch', function(event) {
-  console.log("fetching for " + event.request.url)
-  event.respondWith(getCache(event))
+  //console.log("fetching for " + event.request.url)
+  //event.respondWith(getCache(event))
 });
