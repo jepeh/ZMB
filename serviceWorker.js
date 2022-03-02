@@ -65,7 +65,6 @@ const ASSETS = [
 	"assets/audio/itemPreview.wav",
 	"assets/gltf/box.gltf",
 	"assets/gltf/coin.gltf",
-	"https://cdn.glitch.global/9c74ae8c-1f72-43e4-ad13-91a1f160b641/Quicksand-Bold.ttf?v=1646212240970",
 	"assets/images/atomoff.png",
 	"assets/images/atomon.png",
 	"assets/images/background.jpg",
